@@ -1,4 +1,5 @@
 lua/user
+lua/config
 tt.*
 .tests
 doc/tags

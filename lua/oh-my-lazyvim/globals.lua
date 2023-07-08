@@ -1,5 +1,7 @@
 CONFIGDIR = vim.api.nvim_eval("stdpath('config')")
 
+BEST_DISTRO = "ARCH"
+
 -- protected map, will not override keys set in active plugin spec, (stolen from LunarVim)
 JOINPATHS = function(...)
   local result = table.concat({ ... }, "/")

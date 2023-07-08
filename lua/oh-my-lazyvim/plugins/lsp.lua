@@ -52,6 +52,7 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
+        "marksman",
         "flake8",
       },
       automatic_installation = true,
