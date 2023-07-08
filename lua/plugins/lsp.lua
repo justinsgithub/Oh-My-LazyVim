@@ -54,6 +54,7 @@ return {
         "shfmt",
         "flake8",
       },
+      automatic_installation = true,
     },
   },
 }

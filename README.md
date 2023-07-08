@@ -20,8 +20,12 @@ Refer to the [LazyVim documentation](https://lazyvim.github.io/installation) to 
 
 ## Warning
 
-This is just meant to be a 1 time template to clone, to get you up and started quickly. 
+This is just meant to be a 1 time template to clone, to get you up and started quickly.
 
 This is project is just for fun and new plugins will keep being added, but after you make your own adjustments and personalizations to it, you will not want to merge with newer versions of this repo and risk overwriting your custom configs.
 
 However new versions can still be taken as inspiration and used as an example to add any plugins you might want to your own config (:
+
+## Tips
+
+use <C-]> to jump to tags in help docs (:

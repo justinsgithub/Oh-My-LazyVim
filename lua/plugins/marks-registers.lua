@@ -1,7 +1,8 @@
 return {
   {
     "ecthelionvi/NeoComposer.nvim",
-    enabled = not jit.os:find("Windows"), -- needs sqlite.lua which i think may not work on windows?
+    enabled = false,
+    -- enabled = not jit.os:find("Windows"), -- needs sqlite.lua which i think may not work on windows?
     dependencies = {
       "kkharji/sqlite.lua",
       enabled = not jit.os:find("Windows"), -- needs sqlite.lua which i think may not work on windows?
