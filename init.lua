@@ -1,7 +1,11 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
-CONFIGDIR = vim.api.nvim_eval("stdpath('config')")
 
+-- globals needs to be loaded first
+require("oh-my-lazyvim.globals")
 require("config.lazy")
-require("user.commands")
-require("user.globals")
-require("user.examples")
+require("oh-my-lazyvim.commands")
+require("oh-my-lazyvim.examples")
+--
+--
+-- require("user.commands")
+-- require("user.examples")

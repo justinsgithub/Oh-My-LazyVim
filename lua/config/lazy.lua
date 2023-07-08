@@ -34,8 +34,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.vscode" },
-    -- import/override with your plugins
-    { import = "plugins" },
+
+    { import = "oh-my-lazyvim.plugins" },
+
+    -- make sure your plugins are imported  last so that your changes take precedence
+    -- { import = "user.plugins" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
