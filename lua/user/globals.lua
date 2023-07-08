@@ -3,13 +3,21 @@ P = function(tbl)
   return tbl
 end
 
+MAP = function(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
+
 --    --// exportstring( string )
 --    --// returns a "Lua" portable version of the string
 local function exportstring(s)
   return string.format("%q", s)
 end
 
--- CAREFUL WITH LARGE TABLES
+-- CAREFUL WITH LARGE TABLES, UNSAFE FUNCTION
 Tablesave = function(tbl, filename)
   local charS, charE = "   ", "\n"
   local file, err = io.open(filename, "wb")
@@ -85,7 +93,7 @@ Tablesave = function(tbl, filename)
 end
 
 TS = function(tbl)
-  Tablesave(tbl, "_tmptable")
+  Tablesave(tbl, "_tmptable.lua")
 end
 
 --// The Load Function
