@@ -1,6 +1,6 @@
 # Oh My LazyVim 💤🔌
 
-> The last NeoVim config you'll never need .
+> The last NeoVim config you'll never need.
 
 This is config built from the starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 
