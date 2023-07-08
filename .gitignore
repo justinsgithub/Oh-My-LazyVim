@@ -1,3 +1,4 @@
+lua/user
 tt.*
 .tests
 doc/tags
