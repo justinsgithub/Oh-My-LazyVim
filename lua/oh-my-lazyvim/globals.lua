@@ -1,14 +1,40 @@
-P = function(tbl)
+CONFIGDIR = vim.api.nvim_eval("stdpath('config')")
+
+-- protected map, will not override keys set in active plugin spec, (stolen from LunarVim)
+JOINPATHS = function(...)
+  local result = table.concat({ ... }, "/")
+  return result
+end
+
+SNIPSDIR = JOINPATHS(CONFIGDIR, "snippets")
+
+PrintTable = function(tbl)
   print(vim.inspect(tbl))
   return tbl
 end
 
+-- just adds default options to get ride of some repetitiveness
 MAP = function(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
   vim.keymap.set(mode, lhs, rhs, options)
+end
+
+-- protected map, will not override keys set in active plugin spec, (stolen from LazyVim)
+PMAP = function(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      opts.remap = nil
+    end
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 end
 
 --    --// exportstring( string )
@@ -18,7 +44,7 @@ local function exportstring(s)
 end
 
 -- CAREFUL WITH LARGE TABLES, UNSAFE FUNCTION
-Tablesave = function(tbl, filename)
+SaveTable = function(tbl, filename)
   local charS, charE = "   ", "\n"
   local file, err = io.open(filename, "wb")
   if err then
@@ -92,12 +118,13 @@ Tablesave = function(tbl, filename)
   file:close()
 end
 
-TS = function(tbl)
-  Tablesave(tbl, "_tmptable.lua")
+-- quickly write table to temporary file
+TempTable = function(tbl)
+  SaveTable(tbl, "_tmptable.lua")
 end
 
 --// The Load Function
-local function loadtable(sfile)
+LoadTable = function(sfile)
   local ftables, err = loadfile(sfile)
   if err then
     return _, err
@@ -124,7 +151,8 @@ end
 Reload = function(...)
   return require("plenary.reload").reload_module(...)
 end
-R = function(name)
+
+ReRequire = function(name)
   Reload(name)
   return require(name)
 end
