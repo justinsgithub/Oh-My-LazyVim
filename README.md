@@ -38,6 +38,3 @@ However new versions can still be taken as inspiration and used as an example to
 
 - a big priority is creating strong LSP configs specific to each language and different frameworks
 
-## Tips
-
-use <C-]> to jump to tags in help docs (:
