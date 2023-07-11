@@ -4,27 +4,27 @@ return {
     enabled = false,
     keys = {
       -- Move to previous/next
-      { "<A-,>", "<Cmd>BufferPrevious<CR>" },
-      { "<A-.>", "<Cmd>BufferNext<CR>" },
-      { "<A-<>", "<Cmd>BufferMovePrevious<CR>" }, -- Re-order to previous/next
-      { "<A->>", "<Cmd>BufferMoveNext<CR>" },
-      { "<A-1>", "<Cmd>BufferGoto 1<CR>" }, -- Goto buffer in position...
-      { "<A-2>", "<Cmd>BufferGoto 2<CR>" },
-      { "<A-3>", "<Cmd>BufferGoto 3<CR>" },
-      { "<A-4>", "<Cmd>BufferGoto 4<CR>" },
-      { "<A-5>", "<Cmd>BufferGoto 5<CR>" },
-      { "<A-6>", "<Cmd>BufferGoto 6<CR>" },
-      { "<A-7>", "<Cmd>BufferGoto 7<CR>" },
-      { "<A-8>", "<Cmd>BufferGoto 8<CR>" },
-      { "<A-9>", "<Cmd>BufferGoto 9<CR>" },
-      { "<A-0>", "<Cmd>BufferLast<CR>" },
-      { "<A-p>", "<Cmd>BufferPin<CR>" }, -- Pin/unpin buffer
-      { "<A-c>", "<Cmd>BufferClose<CR>" }, -- Close buffer
-      { "<C-p>", "<Cmd>BufferPick<CR>" }, -- Magic buffer-picking mode
-      { "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>" }, -- Sort automatically by...
-      { "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>" },
-      { "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>" },
-      { "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>" },
+      { "<leader>b,", "<Cmd>BufferPrevious<cr>" },
+      { "<leader>b.", "<Cmd>BufferNext<cr>" },
+      { "<leader>b<", "<Cmd>BufferMovePrevious<cr>" }, -- Re-order to previous/next
+      { "<leader>b>", "<Cmd>BufferMoveNext<cr>" },
+      { "<leader>b1", "<Cmd>BufferGoto 1<cr>" }, -- Goto buffer in position...
+      { "<leader>b2", "<Cmd>BufferGoto 2<cr>" },
+      { "<leader>b3", "<Cmd>BufferGoto 3<cr>" },
+      { "<leader>b4", "<Cmd>BufferGoto 4<cr>" },
+      { "<leader>b5", "<Cmd>BufferGoto 5<cr>" },
+      { "<leader>b6", "<Cmd>BufferGoto 6<cr>" },
+      { "<leader>b7", "<Cmd>BufferGoto 7<cr>" },
+      { "<leader>b8", "<Cmd>BufferGoto 8<cr>" },
+      { "<leader>b9", "<Cmd>BufferGoto 9<cr>" },
+      { "<leader>b0", "<Cmd>BufferLast<cr>" },
+      { "<leader>bp", "<Cmd>BufferPin<cr>" }, -- Pin/unpin buffer
+      { "<leader>bc", "<Cmd>BufferClose<cr>" }, -- Close buffer
+      { "<leader>bp", "<Cmd>BufferPick<cr>" }, -- Magic buffer-picking mode
+      { "<leader>bb", "<Cmd>BufferOrderByBufferNumber<cr>" }, -- Sort automatically by...
+      { "<leader>bd", "<Cmd>BufferOrderByDirectory<cr>" },
+      { "<leader>bl", "<Cmd>BufferOrderByLanguage<cr>" },
+      { "<leader>bw", "<Cmd>BufferOrderByWindowNumber<cr>" },
       -- Wipeout buffer
       --                 :BufferWipeout
       -- Close commands

@@ -30,11 +30,27 @@ return {
       { "<leader><space>", false },
       -- find
       { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>ft", Util.telescope("live_grep"), desc = "Text" },
+      {
+        "<leader>ft",
+        Util.telescope("live_grep"),
+        desc = "Text",
+      },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>fB", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "All Buffers" },
-      { "<leader>fw", Util.telescope("grep_string"), desc = "Word (root dir)" },
-      { "<leader>fW", Util.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
+      {
+        "<leader>fB",
+        "<cmd>Telescope buffers show_all_buffers=true<cr>",
+        desc = "All Buffers",
+      },
+      {
+        "<leader>fw",
+        Util.telescope("grep_string"),
+        desc = "Word (root dir)",
+      },
+      {
+        "<leader>fW",
+        Util.telescope("grep_string", { cwd = false }),
+        desc = "Word (cwd)",
+      },
       {
         "<leader>fp",
         function()
@@ -43,8 +59,8 @@ return {
         desc = "Find Plugin File",
       },
       -- git
-      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-      { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+      { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "commits" },
+      { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
     },
   },
   {
@@ -84,10 +100,10 @@ return {
           ["<leader>gh"] = { name = "+Hunks" },
           ["<leader>p"] = { name = "+Preview" },
           ["<leader>s"] = { name = "+Search" },
-          ["<leader>t"] = { name = "+Tabs" },
+          ["<leader>t"] = { name = "+Term" },
+          ["<leader><tab>"] = { name = "+Tabs" },
           ["<leader>u"] = { name = "+UI" },
           ["<leader>w"] = { name = "+Windows" },
-          ["<leader>x"] = { name = "+Terminal" },
           ["<localleader>s"] = { name = "+Surround" },
           ["["] = { name = "+prev" },
           ["]"] = { name = "+next" },
