@@ -1,5 +1,4 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
-
 -- globals needs to be loaded first for use in config files
 require("oh-my-lazyvim.globals")
 -- load yours second so they take precedence if needed

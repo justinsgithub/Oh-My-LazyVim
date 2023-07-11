@@ -1,9 +1,12 @@
 -- open code outline window
 -- set in keymaps
--- map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Open Code Outline Window" })
+-- map("n", "<leader>a", "<cmd>AerialToggle!<cr>", { desc = "Open Code Outline Window" })
 return {
   {
     "stevearc/aerial.nvim",
+    keys = {
+      { "<leader>a", "<cmd>AerialToggle!<cr>", desc = "Open Code Outline Window" },
+    },
     opts = {
       -- Priority list of preferred backends for aerial.
       -- This can be a filetype map (see :help aerial-filetype-map)
@@ -58,7 +61,7 @@ return {
       keymaps = {
         ["?"] = "actions.show_help",
         ["g?"] = "actions.show_help",
-        ["<CR>"] = "actions.jump",
+        ["<cr>"] = "actions.jump",
         ["<2-LeftMouse>"] = "actions.jump",
         ["<C-v>"] = "actions.jump_vsplit",
         ["<C-s>"] = "actions.jump_split",
@@ -308,7 +311,7 @@ return {
         preview = false,
         -- Keymaps in the nav window
         keymaps = {
-          ["<CR>"] = "actions.jump",
+          ["<cr>"] = "actions.jump",
           ["<2-LeftMouse>"] = "actions.jump",
           ["<C-v>"] = "actions.jump_vsplit",
           ["<C-s>"] = "actions.jump_split",

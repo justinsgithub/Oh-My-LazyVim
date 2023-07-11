@@ -1,3 +1,5 @@
+require("oh-my-lazyvim.examples")
+
 CONFIGDIR = vim.api.nvim_eval("stdpath('config')")
 
 BEST_DISTRO = "ARCH"
@@ -125,7 +127,7 @@ TempTable = function(tbl)
   SaveTable(tbl, "_tmptable.lua")
 end
 
---// The Load Function
+--// The Load Function, loads a lua table from a file, table must be correct lua syntax or will err
 LoadTable = function(sfile)
   local ftables, err = loadfile(sfile)
   if err then
