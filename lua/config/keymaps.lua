@@ -4,11 +4,12 @@
 
 -- This file is automatically loaded by lazyvim.config.init
 local Util = require("lazyvim.util")
+local utils = require("oh-my-lazyvim.utils")
 
 -- MAP("n", "<leader>o", "<cmd>MkOpenSrc<cr>")
-MAP("n", "<F9>", ":OpenLine below<cr>")
-MAP("n", "<F21>", ":OpenLine above<cr>")
-MAP("n", "<localleader>b", ":BiPolar<cr>")
+utils.keymap("n", "<F9>", ":OpenLine below<cr>")
+utils.keymap("n", "<F21>", ":OpenLine above<cr>")
+utils.keymap("n", "<localleader>b", ":BiPolar<cr>")
 
 -- ARROWS BAD
 -- MAP({ "n", "i" }, "<Left>", "")
@@ -17,174 +18,174 @@ MAP("n", "<localleader>b", ":BiPolar<cr>")
 -- MAP({ "n", "i" }, "<Down>", "")
 
 -- stylua: ignore start
-MAP( "n", "<leader>pp", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", { desc = "Preview Definition" })
-MAP( "n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", { desc = "Preview Type Definition" })
-MAP( "n", "<leader>pi", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", { desc = "Preview Implementation" })
-MAP("n", "<leader>pc", "<cmd>lua require('goto-preview').close_all_win()<cr>", { desc = "Close All Preview Win" })
-MAP( "n", "<leader>pr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>", { desc = "Preview References" })
+utils.keymap( "n", "<leader>pp", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", { desc = "Preview Definition" })
+utils.keymap( "n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", { desc = "Preview Type Definition" })
+utils.keymap( "n", "<leader>pi", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", { desc = "Preview Implementation" })
+utils.keymap("n", "<leader>pc", "<cmd>lua require('goto-preview').close_all_win()<cr>", { desc = "Close All Preview Win" })
+utils.keymap( "n", "<leader>pr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>", { desc = "Preview References" })
 -- stylua: ignore end
 
 -- for dial.nvim better incrementing / decrementing
-MAP("n", "<C-a>", require("dial.map").inc_normal())
-MAP("n", "<C-x>", require("dial.map").dec_normal())
-MAP("n", "g<C-a>", require("dial.map").inc_gnormal())
-MAP("n", "g<C-x>", require("dial.map").dec_gnormal())
-MAP("v", "<C-a>", require("dial.map").inc_visual())
-MAP("v", "<C-x>", require("dial.map").dec_visual())
-MAP("v", "g<C-a>", require("dial.map").inc_gvisual())
-MAP("v", "g<C-x>", require("dial.map").dec_gvisual())
+utils.keymap("n", "<C-a>", require("dial.map").inc_normal())
+utils.keymap("n", "<C-x>", require("dial.map").dec_normal())
+utils.keymap("n", "g<C-a>", require("dial.map").inc_gnormal())
+utils.keymap("n", "g<C-x>", require("dial.map").dec_gnormal())
+utils.keymap("v", "<C-a>", require("dial.map").inc_visual())
+utils.keymap("v", "<C-x>", require("dial.map").dec_visual())
+utils.keymap("v", "g<C-a>", require("dial.map").inc_gvisual())
+utils.keymap("v", "g<C-x>", require("dial.map").dec_gvisual())
 
 -- Visual Select code you want to create snippet with
-MAP("v", "<leader>cn", ":CarbonNow<cr>", { desc = "Create Code Snippet" })
+utils.keymap("v", "<leader>cn", ":CarbonNow<cr>", { desc = "Create Code Snippet" })
 
 -- local leader
-MAP("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
-MAP("n", "<LocalLeader>z", ":ZenMode<cr>", { desc = "Zen Mode" })
-MAP("n", "<localleader>w", ":w<cr>", { desc = "Save Buffer" })
-MAP("n", "<localleader>W", ":wall<cr>", { desc = "Save All Buffers" })
-MAP("n", "<localleader>p", ":BufferLinePick<cr>", { desc = "Pick Buffer" })
+utils.keymap("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
+utils.keymap("n", "<LocalLeader>z", ":ZenMode<cr>", { desc = "Zen Mode" })
+utils.keymap("n", "<localleader>w", ":w<cr>", { desc = "Save Buffer" })
+utils.keymap("n", "<localleader>W", ":wall<cr>", { desc = "Save All Buffers" })
+utils.keymap("n", "<localleader>p", ":BufferLinePick<cr>", { desc = "Pick Buffer" })
 
 -- may need modified for windows or Mac, not sure, in oh-my-lazyvim/commands.lua
-MAP("n", "gh", "<cmd>OpenGithubRepo<cr>", { desc = "Open Github Repo" })
+utils.keymap("n", "gh", "<cmd>OpenGithubRepo<cr>", { desc = "Open Github Repo" })
 
 -- turn off, using <localleader>w to save instead instead
-MAP({ "i", "v", "n", "s" }, "<C-s>", "")
+utils.keymap({ "i", "v", "n", "s" }, "<C-s>", "")
 
 --  access system clipboard
-MAP({ "v", "n" }, "|", '"+', { desc = "System Clipboard" })
+utils.keymap({ "v", "n" }, "|", '"+', { desc = "System Clipboard" })
 
 -- better indent
-MAP("n", ">", ">>", { desc = "Single Press Indent" })
-MAP("n", "<", "<<", { desc = "Single Press Unkndent" })
+utils.keymap("n", ">", ">>", { desc = "Single Press Indent" })
+utils.keymap("n", "<", "<<", { desc = "Single Press Unkndent" })
 
 -- better up/down
-MAP({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-MAP({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+utils.keymap({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+utils.keymap({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-MAP("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-MAP("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-MAP("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-MAP("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+utils.keymap("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+utils.keymap("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+utils.keymap("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+utils.keymap("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-MAP("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-MAP("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-MAP("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-MAP("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+utils.keymap("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+utils.keymap("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+utils.keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+utils.keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Move Lines
-MAP("n", "<A-j>", "")
-MAP("n", "<A-k>", "")
-MAP("i", "<A-j>", "")
-MAP("i", "<A-k>", "")
-MAP("v", "<A-j>", "")
-MAP("v", "<A-k>", "")
+utils.keymap("n", "<A-j>", "")
+utils.keymap("n", "<A-k>", "")
+utils.keymap("i", "<A-j>", "")
+utils.keymap("i", "<A-k>", "")
+utils.keymap("v", "<A-j>", "")
+utils.keymap("v", "<A-k>", "")
 
 -- buffers
-MAP("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-MAP("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-MAP("n", "[b", "")
-MAP("n", "]b", "")
-MAP("n", "<leader>bo", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-MAP("n", "<leader>`", "")
+utils.keymap("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+utils.keymap("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+utils.keymap("n", "[b", "")
+utils.keymap("n", "]b", "")
+utils.keymap("n", "<leader>bo", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+utils.keymap("n", "<leader>`", "")
 
 -- Clear search with <esc>
-MAP({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+utils.keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 -- stylua: ignore
-MAP( "n", "<leader>ur", "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>", { desc = "Redraw / clear hlsearch / diff update" })
+utils.keymap( "n", "<leader>ur", "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>", { desc = "Redraw / clear hlsearch / diff update" })
 
-MAP({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
+utils.keymap({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-MAP("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-MAP("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-MAP("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-MAP("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-MAP("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-MAP("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+utils.keymap("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+utils.keymap("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+utils.keymap("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+utils.keymap("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+utils.keymap("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+utils.keymap("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 -- Add undo break-points
-MAP("i", ",", ",<c-g>u")
-MAP("i", ".", ".<c-g>u")
-MAP("i", ";", ";<c-g>u")
+utils.keymap("i", ",", ",<c-g>u")
+utils.keymap("i", ".", ".<c-g>u")
+utils.keymap("i", ";", ";<c-g>u")
 
 -- save file (local leader handles this)
 -- MAP({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- better indenting
-MAP("v", "<", "<gv")
-MAP("v", ">", ">gv")
+utils.keymap("v", "<", "<gv")
+utils.keymap("v", ">", ">gv")
 
 if not Util.has("trouble.nvim") then
-  MAP("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
-  MAP("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
+  utils.keymap("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+  utils.keymap("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 end
 
 -- stylua: ignore start
 
 -- toggle options
-MAP("n", "<leader>uf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
-MAP("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
-MAP("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
-MAP("n", "<leader>ul", function() Util.toggle("relativenumber", true) Util.toggle("number") end, { desc = "Toggle Line Numbers" })
-MAP("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+utils.keymap("n", "<leader>uf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
+utils.keymap("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
+utils.keymap("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
+utils.keymap("n", "<leader>ul", function() Util.toggle("relativenumber", true) Util.toggle("number") end, { desc = "Toggle Line Numbers" })
+utils.keymap("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
-MAP("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
+utils.keymap("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
 if vim.lsp.inlay_hint then
-  MAP("n", "<leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle Inlay Hints" })
+  utils.keymap("n", "<leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle Inlay Hints" })
 end
 
 -- lazygit
-MAP("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
-MAP("n", "<leader>gG", function() Util.float_term({ "lazygit" }, {esc_esc = false, ctrl_hjkl = false}) end, { desc = "Lazygit (cwd)" })
+utils.keymap("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
+utils.keymap("n", "<leader>gG", function() Util.float_term({ "lazygit" }, {esc_esc = false, ctrl_hjkl = false}) end, { desc = "Lazygit (cwd)" })
 
-MAP("n", "<leader>qq", "")
+utils.keymap("n", "<leader>qq", "")
 
 -- highlights under cursor
 if vim.fn.has("nvim-0.9.0") == 1 then
-  MAP("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+  utils.keymap("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 end
 
 -- windows
-MAP("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
-MAP("n", "<leader>wc", "<C-W>c", { desc = "Close window", remap = true })
-MAP("n", "<leader>wb", "<C-W>s", { desc = "Split window below", remap = true })
-MAP("n", "<leader>wr", "<C-W>v", { desc = "Split window right", remap = true })
-MAP("n", "<leader>-", "")
-MAP("n", "<leader>|", "")
+utils.keymap("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
+utils.keymap("n", "<leader>wc", "<C-W>c", { desc = "Close window", remap = true })
+utils.keymap("n", "<leader>wb", "<C-W>s", { desc = "Split window below", remap = true })
+utils.keymap("n", "<leader>wr", "<C-W>v", { desc = "Split window right", remap = true })
+utils.keymap("n", "<leader>-", "")
+utils.keymap("n", "<leader>|", "")
 
 -- tabs
-MAP("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
-MAP("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-MAP("n", "<leader><tab>n", "<cmd>tabnew<cr>", { desc = "New Tab" })
-MAP("n", "<leader><tab>N", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-MAP("n", "<leader><tab>p", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-MAP("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+utils.keymap("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+utils.keymap("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+utils.keymap("n", "<leader><tab>n", "<cmd>tabnew<cr>", { desc = "New Tab" })
+utils.keymap("n", "<leader><tab>N", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+utils.keymap("n", "<leader><tab>p", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+utils.keymap("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- floating terminal
 local lazyterm = function() Util.float_term(nil, { cwd = Util.get_root() }) end
-MAP("n", "<leader>tl", lazyterm, { desc = "Lazy Term (root dir)" })
-MAP("n", "<leader>tL", function() Util.float_term() end, { desc = "Lazy Term (cwd)" })
+utils.keymap("n", "<leader>tl", lazyterm, { desc = "Lazy Term (root dir)" })
+utils.keymap("n", "<leader>tL", function() Util.float_term() end, { desc = "Lazy Term (cwd)" })
 
 -- must override keys for telescope here
-MAP("n", "<leader>ft", Util.telescope("live_grep"), { desc = "Text" })
-MAP("n", "<leader>fT", "")
+utils.keymap("n", "<leader>ft", Util.telescope("live_grep"), { desc = "Text" })
+utils.keymap("n", "<leader>fT", "")
 
 -- delete mappings you don't want like this (CAREFUL, MAY OVERWRITE A KEY IN PLUGIN TABLE THAT YOU WANT)
 -- -- overriding some LazyVim defaults
-MAP("n", "<leader><tab><tab>", "")
-MAP("n", "<leader><tab>[", "")
-MAP("n", "<leader><tab>]", "")
-MAP("n", "<leader><tab>d", "")
+utils.keymap("n", "<leader><tab><tab>", "")
+utils.keymap("n", "<leader><tab>[", "")
+utils.keymap("n", "<leader><tab>]", "")
+utils.keymap("n", "<leader><tab>d", "")
 -- lazy
-MAP("n", "<leader>Pl", "<cmd>Lazy<cr>", { desc = "Lazy" })
-MAP("n", "<leader>l", "")
+utils.keymap("n", "<leader>Pl", "<cmd>Lazy<cr>", { desc = "Lazy" })
+utils.keymap("n", "<leader>l", "")
 -- new file
-MAP("n", "<leader>fn", "", { desc = "New File" })
+utils.keymap("n", "<leader>fn", "", { desc = "New File" })
 -- Trouble
-MAP("n", "<leader>xl", "", { desc = "Location List" })
-MAP("n", "<leader>xq", "", { desc = "Quickfix List" })
+utils.keymap("n", "<leader>xl", "", { desc = "Location List" })
+utils.keymap("n", "<leader>xq", "", { desc = "Quickfix List" })
