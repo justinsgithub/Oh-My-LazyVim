@@ -1,4 +1,5 @@
-local htmlsnip = JOINPATHS(SNIPSDIR, "html.txt")
+local utils = require("oh-my-lazyvim.utils")
+local htmlsnip = utils.join_paths(utils.snippets_dir, "html.txt")
 local fl = vim.fn.getline(1)
 
 local d1 = "<!DOCTYPE html>"

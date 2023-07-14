@@ -1,24 +1,47 @@
-require("oh-my-lazyvim.examples")
+local M = {}
 
-CONFIGDIR = vim.api.nvim_eval("stdpath('config')")
+M.runtime_paths_to_file = function()
+  local rtps = vim.api.nvim_list_runtime_paths()
+  M.table_to_tmp_file(rtps)
+  return rtps
+end
 
-BEST_DISTRO = "ARCH"
+M.config_dir = vim.api.nvim_eval("stdpath('config')")
 
--- protected map, will not override keys set in active plugin spec, (stolen from LunarVim)
-JOINPATHS = function(...)
+M.join_paths = function(...)
   local result = table.concat({ ... }, "/")
   return result
 end
 
-SNIPSDIR = JOINPATHS(CONFIGDIR, "snippets")
+M.snippets_dir = M.join_paths(M.config_dir, "snippets")
 
-PrintTable = function(tbl)
+M.lua_dir = M.join_paths(M.config_dir, "lua")
+
+M.oml_dir = M.join_paths(M.lua_dir, "oh-my-lazyvim")
+
+M.oml_plugins_dir = M.join_paths(M.oml_dir, "plugins")
+
+-- Get the filenames and require them
+M.require_plugin_files = function(plugin_type)
+  local dir = M.join_paths(M.oml_plugins_dir, plugin_type)
+  local pattern = dir .. "/_*.lua"
+  local paths = vim.split(vim.fn.glob(pattern), "\n")
+  local table_of_specs = {}
+  for _, path in ipairs(paths) do
+    local path_split = vim.fn.split(path, "/") --path is a string path_split is a table
+    local file = string.gsub(path_split[#path_split], "%.lua?$", "") -- trim off .lua\n
+    table_of_specs[#table_of_specs + 1] = require("oh-my-lazyvim.plugins." .. plugin_type .. "." .. file)
+  end
+  return table_of_specs
+end
+
+M.print_table = function(tbl)
   print(vim.inspect(tbl))
   return tbl
 end
 
 -- just adds default options to get ride of some repetitiveness
-MAP = function(mode, lhs, rhs, opts)
+M.keymap = function(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
     options = vim.tbl_extend("force", options, opts)
@@ -27,7 +50,7 @@ MAP = function(mode, lhs, rhs, opts)
 end
 
 -- protected map, will not override keys set in active plugin spec, (stolen from LazyVim)
-PMAP = function(mode, lhs, rhs, opts)
+M.p_keymap = function(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
@@ -48,11 +71,15 @@ local function exportstring(s)
 end
 
 -- CAREFUL WITH LARGE TABLES, UNSAFE FUNCTION
-SaveTable = function(tbl, filename)
+M.table_to_file = function(tbl, filename)
   local charS, charE = "   ", "\n"
   local file, err = io.open(filename, "wb")
   if err then
     return err
+  end
+
+  if file == nil then
+    return
   end
 
   -- initiate variables for save procedure
@@ -123,17 +150,23 @@ SaveTable = function(tbl, filename)
 end
 
 -- quickly write table to temporary file
-TempTable = function(tbl)
-  SaveTable(tbl, "_tmptable.lua")
+M.table_to_tmp_file = function(tbl)
+  M.table_to_file(tbl, "_tmptable.lua")
 end
 
 --// The Load Function, loads a lua table from a file, table must be correct lua syntax or will err
-LoadTable = function(sfile)
+M.table_from_file = function(sfile)
   local ftables, err = loadfile(sfile)
   if err then
     return _, err
   end
+
+  if ftables == nil then
+    return nil
+  end
+
   local tables = ftables()
+
   for idx = 1, #tables do
     local tolinki = {}
     for i, v in pairs(tables[idx]) do
@@ -152,11 +185,13 @@ LoadTable = function(sfile)
   return tables[1]
 end
 
-Reload = function(...)
+M.reload_module = function(...)
   return require("plenary.reload").reload_module(...)
 end
 
-ReRequire = function(name)
-  Reload(name)
+M.rerequire_module = function(name)
+  M.reload_module(name)
   return require(name)
 end
+
+return M
