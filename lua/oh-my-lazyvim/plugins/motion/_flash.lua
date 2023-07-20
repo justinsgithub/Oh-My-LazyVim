@@ -12,7 +12,11 @@ local flashopts = { -- only match beginning of words
 return {
   "folke/flash.nvim",
   ---@type Flash.Config
-  opts = {},
+  opts = {
+    jump = {
+      autojump = true,
+    },
+  },
   keys = {
     {
       "s",

@@ -86,11 +86,13 @@ vim.api.nvim_create_user_command("BiPolar", function(_)
   end
 end, { desc = "Switch Moody Words", force = true })
 
--- for plugin spec override - k reg test syyHp\saa"{
-vim.api.nvim_create_user_command("WrabTableLuaFunc", function(_)
+-- turn table to a function returning a table
+-- like for completely erasing default options in plugin spec instead of merging tables
+-- put cursor on top of starting curly brace of table
+vim.api.nvim_create_user_command("WrapTableLuaFunc", function(_)
   -- stylua: ignore
   vim.cmd("normal %")
-  vim.cmd("s/,//e")
+  -- vim.cmd("s/,//e") -- Not right, Do not know why I had this here ??
   local tempmacro = [[aendifunction(lareturn]]
   local tempreg = vim.fn.getreg("k")
   vim.fn.setreg("k", tempmacro)
