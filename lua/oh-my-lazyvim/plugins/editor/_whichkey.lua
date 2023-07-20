@@ -23,7 +23,7 @@ return {
       defaults = {
         mode = { "n", "v" },
         ["<Leader>D"] = { name = "+Debug" },
-        ["<Leader>P"] = { name = "+Plugins" },
+        ["<Leader>L"] = { name = "+Lazy" },
         ["<Leader>S"] = { name = "+Session" },
         ["<Leader>T"] = { name = "+Test" },
         ["<Leader>Y"] = { name = "Yank History" },

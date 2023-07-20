@@ -1,5 +1,9 @@
 local M = {}
 
+M.augroup = function(name) -- oml for Oh My Lazyvim
+  return vim.api.nvim_create_augroup("oml_" .. name, { clear = true })
+end
+
 M.runtime_paths_to_file = function()
   local rtps = vim.api.nvim_list_runtime_paths()
   M.table_to_tmp_file(rtps)
@@ -40,17 +44,8 @@ M.print_table = function(tbl)
   return tbl
 end
 
--- just adds default options to get ride of some repetitiveness
-M.keymap = function(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
-
 -- protected map, will not override keys set in active plugin spec, (stolen from LazyVim)
-M.p_keymap = function(mode, lhs, rhs, opts)
+M.keymap = function(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
