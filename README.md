@@ -1,4 +1,4 @@
-# Oh My LazyVim 💤🔌
+# 💤 Oh My LazyVim 🔌
 
 > The last NeoVim config you'll never need.
 
@@ -6,7 +6,7 @@ This is config built from the starter template for [LazyVim](https://github.com/
 
 The goal of this project is to create as large and every battery you can think of included config as possible... while minimizing abstractions to keep full customizability / extensibility.
 
-I've always found it much faster to take out the things you don't need (like as fast as commenting out some code).
+I've always found it much faster to take out the things you don't need (like as fast as enabled = false).
 
 As opposed to having to go install the tool(s) I need, figure out how to configure them properly, and then also set up keymaps for them.
 
