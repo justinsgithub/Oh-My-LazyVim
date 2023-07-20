@@ -152,8 +152,10 @@ end
 -- windows
 utils.keymap("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
 utils.keymap("n", "<leader>wc", "<C-W>c", { desc = "Close window", remap = true })
-utils.keymap("n", "<leader>wb", "<C-W>s", { desc = "Split window below", remap = true })
-utils.keymap("n", "<leader>wr", "<C-W>v", { desc = "Split window right", remap = true })
+utils.keymap("n", "<leader>wh", "<C-W>s", { desc = "Split window horizontal", remap = true })
+utils.keymap("n", "<leader>wv", "<C-W>v", { desc = "Split window vertical", remap = true })
+utils.keymap("n", "<leader>w-", "")
+utils.keymap("n", "<leader>w|", "")
 utils.keymap("n", "<leader>-", "")
 utils.keymap("n", "<leader>|", "")
 
