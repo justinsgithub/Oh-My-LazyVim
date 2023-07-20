@@ -1,13 +1,11 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
+-- WARN: all files often have intentional ordering to require() calls
 
--- globals needs to be loaded first for use in config files
-require("oh-my-lazyvim.globals")
--- load yours second so they take precedence if needed
-require("user.globals")
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+-- mostly for example, but some might be handy
 require("oh-my-lazyvim.commands")
-require("oh-my-lazyvim.examples")
--- load yours second so they take precedence if needed (if you have such files)
--- require("user.commands")
--- require("user.examples")
+
+-- load your files last so they take precedence if needed
+require("user.commands")
+require("user.globals")
