@@ -24,7 +24,7 @@ return {
   { "folke/noice.nvim" },
   { "folke/persistence.nvim" },
   { "folke/todo-comments.nvim" },
-  { "folke/tokyonight.nvim" },
+  -- { "folke/tokyonight.nvim" },
   { "folke/trouble.nvim" },
   { "folke/which-key.nvim" },
   { "ggandor/flit.nvim" }, -- disabled, replaced with flash.nvim, see plugins/motions.lua and config/lazy.lua

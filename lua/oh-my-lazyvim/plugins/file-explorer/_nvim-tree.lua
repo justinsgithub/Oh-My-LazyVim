@@ -149,7 +149,7 @@ local opts = {
     },
   },
   notify = {
-    threshold = vim.log.levels.INFO,
+    threshold = vim.log.levels.ERROR,
   },
   log = {
     enable = false,
@@ -177,6 +177,7 @@ local keys = {
 
 return {
   "nvim-tree/nvim-tree.lua",
+  enabled = true,
   opts = opts,
   keys = keys,
 }

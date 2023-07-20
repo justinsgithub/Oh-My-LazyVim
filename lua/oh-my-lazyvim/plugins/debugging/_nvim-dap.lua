@@ -1,6 +1,5 @@
 return {
   "mfussenegger/nvim-dap",
-
   dependencies = {
     {
       "jbyuki/one-small-step-for-vimkind",
@@ -22,8 +21,7 @@ return {
           { "<leader>Du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
           { "<leader>De", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
         }
-      end
-,
+      end,
     },
   },
   -- stylua: ignore

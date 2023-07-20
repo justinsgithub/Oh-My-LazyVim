@@ -6,7 +6,6 @@
 local Util = require("lazyvim.util")
 local utils = require("oh-my-lazyvim.utils")
 
--- MAP("n", "<leader>o", "<cmd>MkOpenSrc<cr>")
 utils.keymap("n", "<F9>", ":OpenLine below<cr>")
 utils.keymap("n", "<F21>", ":OpenLine above<cr>")
 utils.keymap("n", "<localleader>b", ":BiPolar<cr>")
@@ -26,14 +25,14 @@ utils.keymap( "n", "<leader>pr", "<cmd>lua require('goto-preview').goto_preview_
 -- stylua: ignore end
 
 -- for dial.nvim better incrementing / decrementing
-utils.keymap("n", "<C-a>", require("dial.map").inc_normal())
-utils.keymap("n", "<C-x>", require("dial.map").dec_normal())
-utils.keymap("n", "g<C-a>", require("dial.map").inc_gnormal())
-utils.keymap("n", "g<C-x>", require("dial.map").dec_gnormal())
-utils.keymap("v", "<C-a>", require("dial.map").inc_visual())
-utils.keymap("v", "<C-x>", require("dial.map").dec_visual())
-utils.keymap("v", "g<C-a>", require("dial.map").inc_gvisual())
-utils.keymap("v", "g<C-x>", require("dial.map").dec_gvisual())
+-- utils.keymap("n", "<C-a>", require("dial.map").inc_normal())
+-- utils.keymap("n", "<C-x>", require("dial.map").dec_normal())
+-- utils.keymap("n", "g<C-a>", require("dial.map").inc_gnormal())
+-- utils.keymap("n", "g<C-x>", require("dial.map").dec_gnormal())
+-- utils.keymap("v", "<C-a>", require("dial.map").inc_visual())
+-- utils.keymap("v", "<C-x>", require("dial.map").dec_visual())
+-- utils.keymap("v", "g<C-a>", require("dial.map").inc_gvisual())
+-- utils.keymap("v", "g<C-x>", require("dial.map").dec_gvisual())
 
 -- Visual Select code you want to create snippet with
 utils.keymap("v", "<leader>cn", ":CarbonNow<cr>", { desc = "Create Code Snippet" })
