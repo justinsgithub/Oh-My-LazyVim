@@ -18,13 +18,12 @@ Refer to the [LazyVim documentation](https://lazyvim.github.io/installation) to 
 
 `git clone https://github.com/justinsgithub/oh-my-lazyvim ~/.config/nvim`
 
-## Warning
+## Usage
 
-This is just meant to be a 1 time template to clone, to get you up and started quickly.
+The config files are structured to allow keeping up to date with new plugins and features in this repo while not messing up your own customizations / changes.
 
-This project is brand new and new plugins will keep being added, but after you make your own adjustments and personalizations to it be careful merging with newer versions of this repo and risk overwriting your custom configs. To protect against messing up your config, the lua/user and lua/config dir is in the .gitignore
-
-However new versions can still be taken as inspiration and used as an example to add any plugins you might want to your own config (:
+To be safe try not to modify any files in the lua/oh-my-lazyvim directory. The files are organized to where you should be
+able to make any changes and customizations you want without touching any files in that directory.
 
 ## Contributing and Todos
 
@@ -32,9 +31,8 @@ However new versions can still be taken as inspiration and used as an example to
 
 - can make pull requests for any fixes or plugins you would like to add, but please include plugin config for lua spec and test first
 
-- add plugin in its own file inside oh-my-lazyvim/plugins directory
+- add plugin in its own file inside oh-my-lazyvim/plugins/{category}/\_{myplugin}.lua directory, in the category directory you think fits best
 
 - please do not perform updates, lazy-lock should only have a change for the new plugin you are adding
 
-- a big priority is creating strong LSP configs specific to each language and different frameworks
-
+- a big priority is creating strong LSP configs specific to each language and different frameworks, as well as stability (no plugins randomly breaking)
