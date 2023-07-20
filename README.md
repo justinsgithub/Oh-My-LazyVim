@@ -2,7 +2,7 @@
 
 > The last NeoVim config you'll never need.
 
-This is config built from the starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+This is a config built with [LazyVim](https://github.com/LazyVim/LazyVim).
 
 The goal of this project is to create as large and every battery you can think of included config as possible... while minimizing abstractions to keep full customizability / extensibility.
 
