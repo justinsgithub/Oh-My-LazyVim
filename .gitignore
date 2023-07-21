@@ -1,6 +1,3 @@
-lua/config
-lua/user
-init.lua
 tt.*
 .tests
 doc/tags
