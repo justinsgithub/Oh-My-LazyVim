@@ -7,6 +7,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
   command = "call AutoCorrect()",
 })
 
+-- Disable autoformat for markdown files, (not work good with material mkdocs)
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "markdown" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
 -- just for example
 vim.api.nvim_create_autocmd("BufEnter", {
   group = augroup("example"),
