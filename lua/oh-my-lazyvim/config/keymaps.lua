@@ -1,6 +1,8 @@
 local Util = require("lazyvim.util")
 local map = require("oh-my-lazyvim.utils").keymap
 
+vim.keymap.set("n", "<leader>A", ":Alpha<cr>", { desc = "Alpha" })
+
 -- stylua: ignore start
 map( "n", "<leader>pp", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", { desc = "Preview Definition" })
 map( "n", "<leader>pt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", { desc = "Preview Type Definition" })
@@ -13,7 +15,6 @@ map( "n", "<leader>pr", "<cmd>lua require('goto-preview').goto_preview_reference
 map("v", "<leader>cn", ":CarbonNow<cr>", { desc = "Create Code Snippet" })
 
 -- local leader
-map("n", "<leader>A", ":Alpha<cr>")
 map("n", "<localleader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
 map("n", "<localleader>q", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<LocalLeader>z", ":ZenMode<cr>", { desc = "Zen Mode" })

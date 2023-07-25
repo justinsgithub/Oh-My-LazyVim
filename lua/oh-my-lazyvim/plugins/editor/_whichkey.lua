@@ -22,7 +22,6 @@ return {
       },
       defaults = {
         mode = { "n", "v" },
-        ["<Leader>A"] = { name = "Alpha", },
         ["<Leader>D"] = { name = "+Debug" },
         ["<Leader>L"] = { name = "+Lazy" },
         ["<Leader>S"] = { name = "+Session" },
