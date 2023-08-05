@@ -2,6 +2,14 @@
 
 > The last NeoVim config you'll never need.
 
+# Important 
+
+> new release this wednesday August 9th
+
+will be making some changes to project based on feedback which change directory structure back to match original LazyVim structure
+
+will make future updates and additions much easier and include a new colorscheme template 😊
+
 This is a config built with [LazyVim](https://github.com/LazyVim/LazyVim).
 
 The goal of this project is to create as large and every battery you can think of included config as possible... while minimizing abstractions to keep full customizability / extensibility.
