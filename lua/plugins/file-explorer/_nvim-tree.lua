@@ -1,3 +1,19 @@
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+  vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+  vim.keymap.del("n", "<C-k>", { buffer = bufnr })
+  vim.keymap.set("n", "<S-k>", api.node.open.preview, opts("Open Preview"))
+end
+
 local opts = {
   auto_reload_on_write = false,
   disable_netrw = true,
@@ -7,10 +23,10 @@ local opts = {
   sort_by = "name",
   root_dirs = {},
   prefer_startup_root = false,
-  sync_root_with_cwd = true, -- NEED
+  sync_root_with_cwd = true, -- Need for project.nvim
   reload_on_bufenter = false,
   respect_buf_cwd = false,
-  on_attach = "default",
+  on_attach = on_attach,
   remove_keymaps = false,
   select_prompts = false,
   view = {
@@ -135,6 +151,7 @@ local opts = {
   },
   trash = {
     cmd = "trash",
+    -- cmd = "gio trash",
     require_confirm = true,
   },
   live_filter = {

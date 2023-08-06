@@ -4,7 +4,7 @@ local map = require("oh-my-lazyvim.utils").keymap
 
 return {
   "monaqa/dial.nvim",
-  enabled = true,
+  enabled = false,
   config = function()
     map("n", "<C-a>", require("dial.map").inc_normal())
     map("n", "<C-x>", require("dial.map").dec_normal())
