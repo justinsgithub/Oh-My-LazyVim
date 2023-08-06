@@ -12,6 +12,7 @@ end
 
 M.config_dir = vim.api.nvim_eval("stdpath('config')")
 
+-- stolen from LunarVim
 M.join_paths = function(...)
   local result = table.concat({ ... }, "/")
   return result
@@ -21,20 +22,18 @@ M.snippets_dir = M.join_paths(M.config_dir, "snippets")
 
 M.lua_dir = M.join_paths(M.config_dir, "lua")
 
-M.oml_dir = M.join_paths(M.lua_dir, "oh-my-lazyvim")
-
-M.oml_plugins_dir = M.join_paths(M.oml_dir, "plugins")
+M.plugins_dir = M.join_paths(M.lua_dir, "plugins")
 
 -- Get the filenames and require them
 M.require_plugin_files = function(plugin_type)
-  local dir = M.join_paths(M.oml_plugins_dir, plugin_type)
+  local dir = M.join_paths(M.plugins_dir, plugin_type)
   local pattern = dir .. "/_*.lua"
   local paths = vim.split(vim.fn.glob(pattern), "\n")
   local table_of_specs = {}
   for _, path in ipairs(paths) do
     local path_split = vim.fn.split(path, "/") --path is a string path_split is a table
     local file = string.gsub(path_split[#path_split], "%.lua?$", "") -- trim off .lua\n
-    table_of_specs[#table_of_specs + 1] = require("oh-my-lazyvim.plugins." .. plugin_type .. "." .. file)
+    table_of_specs[#table_of_specs + 1] = require("plugins." .. plugin_type .. "." .. file)
   end
   return table_of_specs
 end
@@ -44,7 +43,7 @@ M.print_table = function(tbl)
   return tbl
 end
 
--- protected map, will not override keys set in active plugin spec, (stolen from LazyVim)
+-- protected map, will not override keys set in active plugin spec, (from LazyVim internals)
 M.keymap = function(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler

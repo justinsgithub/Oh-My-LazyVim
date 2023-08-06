@@ -1,1 +1,0 @@
-this plugin is found in mini/_bufremove.lua

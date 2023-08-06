@@ -1,1 +1,0 @@
-return { "folke/noice.nvim" }

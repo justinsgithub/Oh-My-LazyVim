@@ -102,3 +102,13 @@ end, {
   desc = "Wrap lua table in a function and return it",
   force = true,
 })
+
+vim.api.nvim_create_user_command("JustForExample", function(_)
+  print("This command is deleted")
+end, {
+  desc = "Example for deleting commands",
+  force = true,
+})
+
+-- create your own commands or delete commands you don't want
+vim.api.nvim_del_user_command("JustForExample")

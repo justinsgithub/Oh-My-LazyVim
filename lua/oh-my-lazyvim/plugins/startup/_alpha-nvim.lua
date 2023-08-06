@@ -1,1 +1,0 @@
-return { "goolord/alpha-nvim" }
