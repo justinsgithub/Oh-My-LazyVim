@@ -38,7 +38,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.vscode" },
 
-    -- import/override plugins
+    -- import / override plugins
     { import = "plugins" },
   },
   defaults = {
@@ -66,9 +66,9 @@ require("lazy").setup({
         -- "matchit",
         -- "matchparen",
         -- "netrwPlugin",
+        -- "tutor",
         "tarPlugin",
         "tohtml",
-        "tutor",
         "zipPlugin",
       },
     },

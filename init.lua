@@ -2,4 +2,4 @@
 require("config.lazy")
 
 -- load additional config files
-require("commands")
+require("config.commands")

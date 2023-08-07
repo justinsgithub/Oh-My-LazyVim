@@ -1,4 +1,4 @@
-local utils = require("oh-my-lazyvim.utils")
+local utils = require("_oml.utils")
 local htmlsnip = utils.join_paths(utils.snippets_dir, "html.txt")
 local fl = vim.fn.getline(1)
 

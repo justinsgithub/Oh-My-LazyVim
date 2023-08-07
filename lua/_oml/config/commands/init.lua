@@ -104,11 +104,8 @@ end, {
 })
 
 vim.api.nvim_create_user_command("JustForExample", function(_)
-  print("This command is deleted")
+  print("You can delete commands you don't need / want")
 end, {
   desc = "Example for deleting commands",
   force = true,
 })
-
--- create your own commands or delete commands you don't want
-vim.api.nvim_del_user_command("JustForExample")

@@ -1,4 +1,4 @@
-local augroup = require("oh-my-lazyvim.utils").augroup
+local augroup = require("_oml.utils").augroup
 
 -- for the autocorrect plugin, very handy but slow start up, only want to start on certain file types
 vim.api.nvim_create_autocmd("BufEnter", {

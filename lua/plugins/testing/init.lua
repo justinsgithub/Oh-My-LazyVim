@@ -1,3 +1,3 @@
-local u = require("oh-my-lazyvim.utils")
+local u = require("_oml.utils")
 
 return u.require_plugin_files("testing")

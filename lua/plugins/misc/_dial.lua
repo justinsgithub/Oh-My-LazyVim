@@ -1,6 +1,6 @@
 -- better incrementing / decrementing
 
-local map = require("oh-my-lazyvim.utils").keymap
+local map = require("_oml.utils").keymap
 
 return {
   "monaqa/dial.nvim",

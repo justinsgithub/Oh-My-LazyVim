@@ -1,3 +1,5 @@
+# so you can choose to ignore any possible Oh My LazyVim changes to plugins that you modify (or any other files)
+*/**/.gitignore
 tt.*
 .tests
 doc/tags
