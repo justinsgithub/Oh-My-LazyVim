@@ -1,5 +1,5 @@
 local Util = require("lazyvim.util")
-local map = require("oh-my-lazyvim.utils").keymap
+local map = require("_oml.utils").keymap
 
 vim.keymap.set("n", "<leader>A", ":Alpha<cr>", { desc = "Alpha" })
 
