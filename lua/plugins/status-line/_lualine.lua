@@ -1,3 +1,5 @@
+local theme = require("_oml.theme-daddy.theme.plugins.lualine")
+
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -7,9 +9,11 @@ return {
 
     return {
       options = {
-        theme = "auto",
+        theme = theme,
         globalstatus = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
+        component_separators = "|",
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { "mode" },
