@@ -2,7 +2,9 @@
 # ./init.lua
 # so you can choose to ignore any possible Oh My LazyVim changes to plugins that you modify (or any other files)
 # EXAMPLE: ./lua/plugins/.gitignore
-# */**/.gitignore
+*/**/.gitignore
+./init.lua
+./lua/config
 TODO.md
 tt.*
 .tests
