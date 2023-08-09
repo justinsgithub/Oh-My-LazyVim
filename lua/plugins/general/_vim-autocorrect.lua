@@ -1,0 +1,3 @@
+return {
+  "panozzaj/vim-autocorrect",
+}
