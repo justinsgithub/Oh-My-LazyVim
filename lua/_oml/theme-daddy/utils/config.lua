@@ -6,7 +6,7 @@ local default = {
   transparent_background = true,
   terminal_colors = true,
   devicons = false,
-  palette = "default",
+  theme = "default",
   inc_search = "background", -- underline | background
   background_clear = {
     -- "float_win",

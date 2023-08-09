@@ -1,6 +1,6 @@
 local M = {}
 
---- @param c Colorscheme The color palette
+--- @param c Colorscheme The color theme
 --- @param config Config
 --- @param hp Helper
 M.setup = function(c, config, hp)
@@ -15,7 +15,7 @@ M.setup = function(c, config, hp)
       fg = c.base.white,
     }, -- character under the cursor
     -- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    -- CursorIM     = {bg = theme.palette.red}, -- like Cursor, but used when in IME mode |CursorIM|
+    -- CursorIM     = {bg = theme.theme.red}, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn = {
       bg = c.editor.background,
     }, -- Screen-column at the cursor, when 'cursorcolumn' is set.

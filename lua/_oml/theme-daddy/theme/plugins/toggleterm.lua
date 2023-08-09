@@ -1,6 +1,6 @@
 local M = {}
 
---- @param c Colorscheme The color palette
+--- @param c Colorscheme The color theme
 --- @param config Config
 M.setup = function(c, config, _)
   local isBackgroundClear = vim.tbl_contains(config.background_clear, "toggleterm")

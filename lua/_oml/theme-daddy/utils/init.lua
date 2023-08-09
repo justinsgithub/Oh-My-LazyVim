@@ -1,16 +1,32 @@
 local hp = require("_oml.theme-daddy.utils.color_helper")
 local nui_ok, _ = pcall(require, "nui.menu")
+local utils = require("_oml.utils")
 
 local M = {}
+
+M.get_themes = function()
+  local themes_dir = utils.join_paths(utils.lua_dir, "_oml", "theme-daddy", "colorscheme", "themes")
+  local pattern = themes_dir .. "/*.lua"
+  local theme_paths = vim.split(vim.fn.glob(pattern), "\n")
+  local themes = {}
+  for _, path in ipairs(theme_paths) do
+    local path_split = vim.fn.split(path, "/") --path is a string path_split is a table
+    local theme = string.gsub(path_split[#path_split], "%.lua?$", "") -- trim off .lua\n
+    themes[#themes + 1] = theme
+  end
+  return themes
+end
+
+M.themes = M.get_themes()
 
 local function get_real_color(hex_color, base)
   if hex_color == nil or string.len(hex_color) ~= 9 then
     return hex_color
   end
 
-  local palette = require("_oml.theme-daddy.colorscheme").palette
-  ---@module "_td.colorscheme.palette.default"
-  local c = require("_oml.theme-daddy.colorscheme.palette." .. palette)
+  local theme = require("_oml.theme-daddy.colorscheme").theme
+  ---@module "_oml.theme-daddy.colorscheme.themes.default"
+  local c = require("_oml.theme-daddy.colorscheme.themes" .. theme)
   if base == nil then
     base = c.background
   end
