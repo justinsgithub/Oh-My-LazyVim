@@ -2,13 +2,15 @@
 
 > The last NeoVim config you'll never need.
 
-# Important 
+## Important 
 
-> new release this wednesday August 9th
+> new release v1
 
-will be making some changes to project based on feedback which change directory structure back to match original LazyVim structure
+made some changes to project based on feedback which changed directory structure back to match original LazyVim structure
 
-will make future updates and additions much easier and include a new colorscheme template 😊
+new builtin colorscheme "theme-daddy" which is used by default, can easily customize by adding your own theme, or just use as a template or example to learn from
+
+## About
 
 This is a config built with [LazyVim](https://github.com/LazyVim/LazyVim).
 
@@ -30,7 +32,7 @@ Refer to the [LazyVim documentation](https://lazyvim.github.io/installation) to 
 
 The config files are structured to allow keeping up to date with new plugins and features in this repo while not messing up your own customizations / changes.
 
-To be safe try not to modify any files in the lua/oh-my-lazyvim directory. The files are organized to where you should be
+Do not modify any files in the lua/_oml directory. The files are organized to where you should be
 able to make any changes and customizations you want without touching any files in that directory.
 
 ## Contributing and Todos
