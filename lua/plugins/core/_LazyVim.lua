@@ -1,7 +1,7 @@
 local colorscheme = function()
   require("_oml.theme-daddy").setup({
-    -- transparent_background = false -- default is true
-    palette = "justinsgithub",
+    -- transparent_background = false, -- default is true
+    theme = "custom",
   })
   return "theme-daddy"
 end

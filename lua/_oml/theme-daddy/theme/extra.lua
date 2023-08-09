@@ -1,6 +1,6 @@
 local M = {}
 
---- @param c table The color palette
+--- @param c table The color theme
 M.setup = function(c, _, _)
   return {
     SPNormalFloat = { bg = c.editorSuggestWidget.background, fg = c.editorSuggestWidget.foreground },

@@ -1,6 +1,6 @@
 local M = {}
 
---- @param c Colorscheme The color palette
+--- @param c Colorscheme The color theme
 M.setup = function(c, _, _)
   return {
     UfoFoldedBg = { bg = c.editor.background },

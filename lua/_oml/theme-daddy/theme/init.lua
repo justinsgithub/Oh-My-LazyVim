@@ -65,7 +65,7 @@ end
 M.setup = function()
   local config = require("_oml.theme-daddy.utils.config").options
   local devicons = require("_oml.theme-daddy.utils.devicons")
-  local colorscheme = require("_oml.theme-daddy.colorscheme").setup(config.palette)
+  local colorscheme = require("_oml.theme-daddy.colorscheme").setup(config.theme)
 
   -- generate highlight groups
   -- Example:

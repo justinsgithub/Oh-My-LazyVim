@@ -1,6 +1,6 @@
 local M = {}
 
---- @param c Colorscheme The color palette
+--- @param c Colorscheme The color theme
 --- @param hp Helper
 M.setup = function(c, _, hp)
   local lazy_bg = hp.lighten(c.sideBar.background, 5)

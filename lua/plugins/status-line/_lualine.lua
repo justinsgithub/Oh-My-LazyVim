@@ -16,7 +16,9 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = {
+          { "mode", separator = { left = "" }, right_padding = 1, left_padding = 1 },
+        },
         lualine_b = { "branch" },
         lualine_c = {
           {
@@ -71,9 +73,14 @@ return {
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
-          function()
-            return " " .. os.date("%R")
-          end,
+          {
+            function()
+              return " " .. os.date("%R")
+            end,
+            separator = { right = "" },
+            right_padding = 1,
+            left_padding = 1,
+          },
         },
       },
       extensions = { "neo-tree", "lazy" },

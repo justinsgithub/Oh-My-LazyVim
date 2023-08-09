@@ -28,6 +28,20 @@ return {
     { "<Leader><Space>", false },
     -- find
     { "<Leader>fc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      -- add a keymap to browse plugin files
+      -- stylua: ignore
+    {
+      "<leader>fP",
+      function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+      desc = "Find Plugin File",
+    },
+      -- add a keymap to browse LazyVim default config
+      -- stylua: ignore
+    {
+      "<leader>fC",
+      function() require("telescope.builtin").live_grep({ cwd = vim.fn.stdpath("data") .. "/lazy/LazyVim/lua/lazyvim" }) end,
+      desc = "Find LazyVim Config",
+    },
     {
       "<Leader>ft",
       Util.telescope("live_grep"),
