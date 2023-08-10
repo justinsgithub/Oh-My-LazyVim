@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_del_augroup_by_name("oml_example")
 
 vim.api.nvim_create_autocmd("BufNewFile", {
-  group = augroup("example"),
+  group = augroup("skeletons"),
   pattern = { "*.html" },
   callback = function()
     local skelpath = utils.join_paths(utils.skeleton_dir, "html")
