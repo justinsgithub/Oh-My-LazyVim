@@ -1,13 +1,13 @@
-local theme_config = require("config.theme")
+local is_theme, theme_config = pcall(require, "config.theme")
 local M = {}
 
 ---@class Config
 ---@field override fun(colors: Colorscheme)
 local default = {
-  transparent_background = theme_config.transparent_background,
+  transparent_background = true,
+  theme = "default",
   terminal_colors = true,
   devicons = false,
-  theme = theme_config.theme,
   inc_search = "background", -- underline | background
   background_clear = {
     -- "float_win",
@@ -30,6 +30,15 @@ local default = {
   ---@param colors Colorscheme
   override = function(colors) end,
 }
+
+if is_theme then
+  if theme_config.transparent_background then
+    default.transparent_background = theme_config.transparent_background
+  end
+  if theme_config.theme then
+    default.theme = theme_config.theme
+  end
+end
 
 ---@type Config
 M.options = {}

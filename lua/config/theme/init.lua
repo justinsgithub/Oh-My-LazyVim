@@ -1,6 +1,3 @@
--- WARN: do not have to use this theme, but should not delete this file
--- have not added error handling yet if this file is not found or does not return {custom, theme, transparent}
-
 -- customize to your liking
 local palette = require("_oml.theme-daddy.colorscheme.palette")
 local darkerergrey = palette.darkerergrey
