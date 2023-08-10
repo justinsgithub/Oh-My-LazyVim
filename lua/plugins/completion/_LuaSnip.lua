@@ -1,7 +1,3 @@
--- for nvim-cmp to use <tab> for completion
-return {
-  "L3MON4D3/LuaSnip",
-  keys = function()
-    return {}
-  end,
-}
+local plugin_spec = require("_oml.plugins.completion._LuaSnip")
+
+return plugin_spec

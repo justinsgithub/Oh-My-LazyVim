@@ -1,1 +1,3 @@
-return { "folke/tokyonight.nvim", enabled = true }
+local plugin_spec = require("_oml.plugins.colorschemes._tokyonight")
+
+return plugin_spec

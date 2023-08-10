@@ -1,3 +1,4 @@
+local custom_theme = require("config.theme").custom
 local palette = require("_oml.theme-daddy.colorscheme.palette")
 local darkerergrey = palette.darkerergrey
 local darkestgrey = palette.darkestgrey
@@ -179,4 +180,5 @@ local theme = {
 
 theme.treesitter = treesitter
 
-return theme
+local merged_theme = vim.tbl_deep_extend("keep", custom_theme, theme)
+return merged_theme

@@ -1,12 +1,13 @@
+local theme_config = require("config.theme")
 local M = {}
 
 ---@class Config
 ---@field override fun(colors: Colorscheme)
 local default = {
-  transparent_background = true,
+  transparent_background = theme_config.transparent_background,
   terminal_colors = true,
   devicons = false,
-  theme = "default",
+  theme = theme_config.theme,
   inc_search = "background", -- underline | background
   background_clear = {
     -- "float_win",

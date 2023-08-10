@@ -1,5 +1,3 @@
-return {
-  -- multi cursor, <C-n> n to add selection q to skip selection
-  "mg979/vim-visual-multi",
-  enabled = false,
-}
+local plugin_spec = require("_oml.plugins.misc._vim-visual-multi")
+
+return plugin_spec

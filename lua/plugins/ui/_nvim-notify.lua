@@ -1,7 +1,3 @@
-return {
-  -- fix notify background_colour for oh-my-monokai
-  "rcarriga/nvim-notify",
-  opts = {
-    background_colour = "#000000",
-  },
-}
+local plugin_spec = require("_oml.plugins.ui._nvim-notify")
+
+return plugin_spec

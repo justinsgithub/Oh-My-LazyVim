@@ -1,14 +1,3 @@
-local keys = {
-  {
-    "<leader>e",
-    "<cmd>CHADopen<cr>",
-    desc = "Explorer",
-  },
-}
+local plugin_spec = require("_oml.plugins.file-explorer._chadtree")
 
-return {
-  "ms-jpq/chadtree",
-  enabled = false,
-  keys = keys,
-  build = "python3 -m chadtree deps",
-}
+return plugin_spec

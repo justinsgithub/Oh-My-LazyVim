@@ -1,18 +1,3 @@
--- add any tools you want to have installed below
--- add any tools you want to have installed below
-return
--- add any tools you want to have installed below
-{
-  "williamboman/mason.nvim",
-  build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-  opts = {
-    ensure_installed = {
-      "stylua",
-      "shellcheck",
-      "shfmt",
-      "marksman",
-      "flake8",
-    },
-    automatic_installation = true,
-  },
-}
+local plugin_spec = require("_oml.plugins.lsp._mason")
+
+return plugin_spec

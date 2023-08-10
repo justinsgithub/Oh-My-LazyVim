@@ -1,6 +1,3 @@
-return {
-  "ThePrimeagen/harpoon",
-  config = function()
-    require("telescope").load_extension("harpoon")
-  end,
-}
+local plugin_spec = require("_oml.plugins.marks-registers._harpoon")
+
+return plugin_spec

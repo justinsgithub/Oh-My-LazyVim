@@ -1,7 +1,3 @@
-return {
-  "tiagovla/scope.nvim", -- tab scoped buffers (either love or hate)
-  enabled = true,
-  opts = {
-    restore_state = true, -- false, -- experimental
-  },
-}
+local plugin_spec = require("_oml.plugins.buffers-tabs._scope")
+
+return plugin_spec

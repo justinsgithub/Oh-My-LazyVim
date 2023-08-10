@@ -1,6 +1,3 @@
-return {
-  "simrat39/symbols-outline.nvim",
-  cmd = "SymbolsOutline",
-  keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-  config = true,
-}
+local plugin_spec = require("_oml.plugins.diagnostics._symbols-outline")
+
+return plugin_spec

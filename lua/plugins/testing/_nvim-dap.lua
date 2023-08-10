@@ -1,8 +1,3 @@
-return {
-  "mfussenegger/nvim-dap",
-  optional = true,
-    -- stylua: ignore
-    keys = {
-      { "<leader>Td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Debug Nearest" },
-    },
-}
+local plugin_spec = require("_oml.plugins.testing._nvim-dap")
+
+return plugin_spec

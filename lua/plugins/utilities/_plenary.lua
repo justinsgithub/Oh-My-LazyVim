@@ -1,1 +1,3 @@
-return { "nvim-lua/plenary.nvim" }
+local plugin_spec = require("_oml.plugins.utilities._plenary")
+
+return plugin_spec

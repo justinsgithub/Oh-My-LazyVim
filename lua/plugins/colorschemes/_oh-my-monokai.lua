@@ -1,7 +1,3 @@
-return {
-  "justinsgithub/oh-my-monokai.nvim",
-  opts = {
-    transparent_background = true,
-    palette = "justinsgithub",
-  },
-}
+local plugin_spec = require("_oml.plugins.colorschemes._oh-my-monokai")
+
+return plugin_spec
