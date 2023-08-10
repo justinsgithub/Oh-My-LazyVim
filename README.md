@@ -4,11 +4,14 @@
 
 ## Important 
 
-> new release v1
+> new release v2 (day after v1 release, finally thought of the solution for satisfactory directory structure)
+
+git pull will not be good if using version before this, better to start with fresh git clone or stick with previous version, can still learn from the additions / future additions to the current version
 
 made some changes to project based on feedback which changed directory structure back to match original LazyVim structure
 
-new builtin colorscheme "theme-daddy" which is used by default, can easily customize by adding your own theme, or just use as a template or example to learn from
+new builtin colorscheme "theme-daddy" which is used by default, can easily customize by customizing your own theme, or just use as a template or example to learn from
+
 
 ## About
 
