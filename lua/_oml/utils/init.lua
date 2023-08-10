@@ -18,7 +18,7 @@ M.join_paths = function(...)
   return result
 end
 
-M.snippets_dir = M.join_paths(M.config_dir, "snippets")
+M.skeleton_dir = M.join_paths(M.config_dir, "skeletons")
 
 M.lua_dir = M.join_paths(M.config_dir, "lua")
 

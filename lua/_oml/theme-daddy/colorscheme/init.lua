@@ -161,7 +161,6 @@ M.setup = function(_theme)
   }
 
   cs.statusBar = {
-
     background = theme.dark2,
     foreground = theme.dimmed3,
     activeForeground = theme.dimmed1,

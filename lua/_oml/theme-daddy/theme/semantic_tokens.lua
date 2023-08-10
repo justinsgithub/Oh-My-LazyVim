@@ -3,6 +3,9 @@ local M = {}
 --- @param c Colorscheme The color theme
 --- @param config Config
 M.setup = function(c, config, _)
+  if c.base.semantic_tokens then
+    return c.base.semantic_tokens
+  end
   return {
     -- type
     ["@lsp.type.class"] = { link = "Structure" },

@@ -1,29 +1,32 @@
 local palette = require("_oml.theme-daddy.colorscheme.palette")
-local red = palette.red
-local darkerergrey = palette.darkerergrey
-local darkestgrey = palette.darkestgrey
+
 local black = palette.black
-local white = palette.white
-local dirtywhite = palette.dirtywhite
-local magenta = palette.magenta
-local purple = palette.purple
-local yellow = palette.yellow
-local orange = palette.orange
+local bluegrey = palette.bluegrey
+local blue = palette.blue
+local cyan = palette.cyan
+local dark1 = palette.darkerergrey
+local darkergrey = palette.darkergrey
+local darkestgrey = palette.darkestgrey
+local darkgrey = palette.darkgrey
 local darkorange = palette.darkorange
+local dimmed1 = "#c1c0c0"
+local dimmed2 = palette.grey -- border ?
+local dimmed3 = "#727072"
+local dimmed5 = "#403e41"
+local dirtywhite = palette.dirtywhite
 local green = palette.green
 local leaf = palette.leaf
-local blue = palette.blue
+local lightgrey = palette.lightgrey
+local magenta = palette.magenta
+local orange = palette.orange
+local pink = palette.pink
+local purple = palette.purple
+local red = palette.red
 local sky = palette.sky
 local teal = palette.teal
-local pink = palette.pink
-local cyan = palette.cyan
-local lightgrey = palette.lightgrey
-local grey = palette.grey
-local darkgrey = palette.darkgrey
-local darkergrey = palette.darkergrey
-local bluegrey = palette.bluegrey
-local dimmed2 = grey -- border ?
-local dark1 = darkerergrey
+local text = "fcfcfa"
+local white = palette.white
+local yellow = palette.yellow
 
 local sideBar = {
   background = dark1,
@@ -39,6 +42,54 @@ local styles = {
   parameter = { italic = true }, -- parameter pass in function
   annotation = { italic = true },
   tag_attribute = { italic = true }, -- attribute of tag in reactjs, html, etc...
+}
+local semantic_tokens = {
+
+  -- type
+  ["@lsp.type.class"] = { link = "Structure" },
+  ["@lsp.type.decorator"] = { link = "Function" },
+  ["@lsp.type.enum"] = { link = "Structure" },
+  ["@lsp.type.enumNumber"] = { link = "Constant" },
+  ["@lsp.type.function"] = { link = "Function" },
+  ["@lsp.type.interface"] = { link = "Structure" },
+  ["@lsp.type.macro"] = { link = "Macro" },
+  ["@lsp.type.method"] = { link = "Function" },
+  ["@lsp.type.namespace"] = { link = "Identifier" },
+  ["@lsp.type.parameter"] = { link = "Identifier" },
+  ["@lsp.type.property"] = { link = "Identifier" },
+  ["@lsp.type.struct"] = { link = "Structure" },
+  ["@lsp.type.type"] = { link = "Type" },
+  ["@lsp.type.typeParameter"] = { link = "TypeDef" },
+  ["@lsp.type.variable"] = { link = "Identifier" },
+
+  -- mod
+  -- ["@lsp.mod.declaration"] = { fg = cyan },
+  -- ["@lsp.mod.definition"] = { fg = cyan },
+  -- ["@lsp.mod.readonly"] = { fg = magenta },
+  -- ["@lsp.mod.static"] = {},
+  ["@lsp.mod.deprecated"] = { strikethrough = true },
+  -- ["@lsp.mod.abstract"] = {},
+  -- ["@lsp.mod.async"] = {},
+  -- ["@lsp.mod.modification"] = {},
+  -- ["@lsp.mod.documentation"] = {},
+  -- ["@lsp.mod.defaultLibrary"] = {},
+
+  ["@lsp.typemod.class.defaultLibrary"] = { fg = white },
+  -- ["@lsp.typemod.decorator"] = {},
+  -- ["@lsp.typemod.enum"] = {},
+  -- ["@lsp.typemod.enumNumber"] = {},
+  ["@lsp.typemod.function.declaration"] = { fg = green },
+  ["@lsp.typemod.function.defaultLibrary"] = { fg = blue },
+  -- ["@lsp.typemod.interface"] = {},
+  -- ["@lsp.typemod.macro"] = {},
+  -- ["@lsp.typemod.method"] = {},
+  -- ["@lsp.typemod.namespace"] = {},
+  ["@lsp.typemod.parameter.declaration"] = { fg = blue, italic = styles.parameter.italic },
+  -- ["@lsp.typemod.property"] = {},
+  -- ["@lsp.typemod.struct"] = {},
+  -- ["@lsp.typemod.type"] = {},
+  -- ["@lsp.typemod.typeParameter"] = {},
+  ["@lsp.typemod.variable.readonly"] = { fg = magenta },
 }
 
 local treesitter = {
@@ -86,10 +137,10 @@ local treesitter = {
   ["@constant.macro.cpp"] = { fg = red },
   ["@punctuation.delimiter.cpp"] = { fg = sideBar.foreground },
   -- python
+  ["@parameter.python"] = { fg = blue, italic = true },
   ["@type.python"] = { fg = blue },
   ["@keyword.python"] = { fg = blue, italic = styles.keyword.italic },
   ["@variable.builtin.python"] = {
-    -- fg = c.editorSuggestWidget.green, -- idk why green is there
     fg = green,
     italic = true,
   },
@@ -111,73 +162,93 @@ local treesitter = {
   ["@keyword.function.lua"] = { fg = red },
   ["@conditional.lua"] = { fg = red },
   ["@namespace.lua"] = { fg = red },
+  ["@string.documentation"] = { fg = dimmed3 },
+  ["@type.builtin"] = { fg = cyan },
+  ["@_isinstance"] = { fg = green },
+  ["@comment.documentation.lua"] = { fg = cyan },
+  ["@parameter.lua"] = { fg = blue, italic = true },
+  -- latex
+  ["@text.environment.latex"] = { fg = green },
+  ["@text.environment.name.latex"] = { fg = blue, italic = true },
+  ["@punctuation.special.latex"] = { fg = red },
+  ["@text.math.latex"] = { fg = magenta },
+  ["@text.strong.latex"] = { bold = true },
+  ["@text.emphasis.latex"] = { italic = true },
+  ["@string.latex"] = { fg = cyan },
+  ["@function.macro.latex"] = { fg = green },
+  -- Dockerfile
+  ["@keyword.dockerfile"] = { fg = red },
+  ["@lsp.type.class.dockerfile"] = { fg = cyan },
+  ["@function.call.bash"] = { fg = green },
+  ["@parameter.bash"] = { fg = white },
 }
 
 local theme = {
-  sideBar = sideBar,
-  background = darkestgrey,
-  text = dirtywhite,
-  dark = black,
-  dark1 = dark1,
-  dark2 = black,
   accent1 = red,
   accent2 = orange,
   accent3 = yellow,
   accent4 = green,
   accent5 = sky,
+  background = darkestgrey,
+  black = black,
+  blue = blue,
+  boolean = magenta,
+  character = magenta,
+  comment = darkgrey,
+  conditional = pink,
+  constant = pink,
+  cyan = cyan,
+  dark1 = dark1,
+  dark2 = black,
+  dark = black,
+  dark_orange = darkorange,
+  define = red,
+  delimiter = white,
   dimmed1 = lightgrey,
   dimmed2 = dimmed2, -- border
   dimmed3 = darkgrey,
   dimmed4 = bluegrey,
   dimmed5 = darkergrey,
-  delimiter = white,
-  character = magenta,
-  number = magenta,
-  boolean = magenta,
-  float = magenta,
-  op = red,
   exc = red,
+  float = magenta,
+  func = green,
+  green = green,
+  identifier = orange,
+  include = red,
   kword = red,
   label = red,
-  peat = red,
-  statement = red,
-  include = red,
-  define = red,
+  leaf = leaf,
   macro = red,
+  magenta = magenta,
+  number = magenta,
+  op = red,
+  orange = orange,
+  peat = red,
+  pink = pink,
   precondit = red,
   preproc = yellow,
-  str = yellow,
-  identifier = orange,
-  func = green,
-  type = blue,
-  todo = pink,
-  typedef = pink,
-  storageclass = pink,
-  conditional = pink,
-  constant = pink,
-  special = cyan,
-  specialchar = cyan,
-  structure = cyan,
-  specialcomment = darkgrey,
-  comment = darkgrey,
-  styles = styles,
-  blue = blue,
-  leaf = leaf,
-  dark_orange = darkorange,
-  orange = orange,
-  white = white,
-  magenta = magenta,
   purple = purple,
   red = red,
-  yellow = yellow,
-  green = green,
+  sideBar = sideBar,
   sky = sky,
+  specialchar = cyan,
+  specialcomment = darkgrey,
+  special = cyan,
+  statement = red,
+  storageclass = pink,
+  structure = cyan,
+  str = yellow,
+  styles = styles,
   teal = teal,
-  cyan = cyan,
-  pink = pink,
-  black = black,
+  text = dirtywhite,
+  todo = pink,
+  type = blue,
+  typedef = pink,
+  white = white,
+  yellow = yellow,
 }
 
 theme.treesitter = treesitter
+theme.semantic_tokens = semantic_tokens
 
 return theme
