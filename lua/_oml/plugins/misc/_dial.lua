@@ -4,7 +4,7 @@ local map = require("_oml.utils").keymap
 
 return {
   "monaqa/dial.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     map("n", "<C-a>", require("dial.map").inc_normal())
     map("n", "<C-x>", require("dial.map").dec_normal())
