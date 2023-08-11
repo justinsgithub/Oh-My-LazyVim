@@ -4,7 +4,7 @@
 
 ## Important 
 
-> new release v2 (day after v1 release, finally thought of the solution for satisfactory directory structure)
+> new release v2
 
 git pull will not be good if using version before this, better to start with fresh git clone or stick with previous version, can still learn from the additions / future additions to the current version
 
