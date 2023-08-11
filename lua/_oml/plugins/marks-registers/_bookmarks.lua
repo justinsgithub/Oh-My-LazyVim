@@ -2,7 +2,7 @@ return {
   "crusj/bookmarks.nvim",
   keys = {
     {
-      "<Tab><Tab>",
+      "<Leader><Tab>b",
       desc = "Bookmarks",
     },
   },

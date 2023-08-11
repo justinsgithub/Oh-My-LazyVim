@@ -27,10 +27,43 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_del_augroup_by_name("oml_example")
 
 vim.api.nvim_create_autocmd("BufNewFile", {
-  group = augroup("skeletons"),
+  group = augroup("html"),
   pattern = { "*.html" },
   callback = function()
     local skelpath = utils.join_paths(utils.skeleton_dir, "html")
     vim.cmd("0r " .. skelpath)
   end,
 })
+
+-- stop from annoyance of calling source % after changing config file, (won't work right for plugin specs)
+-- TODO: only activate with global _dev variable
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = augroup("neovimdev"),
+  pattern = { "*.lua" },
+  callback = function()
+    vim.cmd("source %")
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  group = augroup("nextjs-ts"),
+  pattern = { "*.ts" },
+  callback = function()
+    local cwd = vim.fn.getcwd()
+    local found_file = vim.fn.findfile("next.config.js", cwd) ~= ""
+    local api_dir = vim.fn.finddir("api", ".;" .. cwd) ~= ""
+    if found_file and api_dir then
+      local skelpath = utils.join_paths(utils.skeleton_dir, "nextjs-ts-api.ts")
+      vim.cmd("0r " .. skelpath)
+    end
+  end,
+})
+
+-- TODO: finish
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   group = augroup("keymaps"),
+--   pattern = { "*.lua" },
+--   callback = function()
+--     vim.api.nvim_buf_set_keymap(0, "n", "<Leader>;c", "<cmd>lua print(vim.fn.getcwd())<cr>", {noremap = true})
+--   end,
+-- })
