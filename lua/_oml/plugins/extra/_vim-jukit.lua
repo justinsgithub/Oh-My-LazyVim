@@ -1,4 +1,4 @@
--- TODO: this gets everything working with <leader>j{keys}, need time to get the whichkey descriptions prettier
+-- TODO: ? this gets everything working with <leader>j{keys}, might want to make whichkey descriptions shorter
 vim.cmd([[
 "Basic jukit options
 let g:jukit_shell_cmd = 'ipython3'
@@ -149,86 +149,87 @@ let g:jukit_layout = {
 " let g:jukit_ueberzug_imagemagick_cmd = 'convert'
 "   - path to imagemagick (`convert` command) executable
 
+"INFO: commented out because set in config = function (below)
 "Functions and default mappings
 
 "Splits
-nnoremap <leader>jos :call jukit#splits#output()<cr>
+" nnoremap <leader>jos :call jukit#splits#output()<cr>
 "   - Opens a new output window and executes the command specified in `g:jukit_shell_cmd`
-nnoremap <leader>jts :call jukit#splits#term()<cr>
+" nnoremap <leader>jts :call jukit#splits#term()<cr>
 "   - Opens a new output window without executing any command
-nnoremap <leader>jhs :call jukit#splits#history()<cr>
+" nnoremap <leader>jhs :call jukit#splits#history()<cr>
 "   - Opens a new output-history window, where saved ipython outputs are displayed
-nnoremap <leader>johs :call jukit#splits#output_and_history()<cr>
+" nnoremap <leader>johs :call jukit#splits#output_and_history()<cr>
 "   - Shortcut for opening output terminal and output-history
-nnoremap <leader>jhd :call jukit#splits#close_history()<cr>
+" nnoremap <leader>jhd :call jukit#splits#close_history()<cr>
 "   - Close output-history window
-nnoremap <leader>jod :call jukit#splits#close_output_split()<cr>
+" nnoremap <leader>jod :call jukit#splits#close_output_split()<cr>
 "   - Close output window
-nnoremap <leader>johd :call jukit#splits#close_output_and_history(1)<cr>
+" nnoremap <leader>johd :call jukit#splits#close_output_and_history(1)<cr>
 "   - Close both windows. Argument: Whether or not to ask you to confirm before closing.
-nnoremap <leader>jso :call jukit#splits#show_last_cell_output(1)<cr>
+" nnoremap <leader>jso :call jukit#splits#show_last_cell_output(1)<cr>
 "   - Show output of current cell (determined by current cursor position) in output-history window. Argument: Whether or not to reload outputs if cell id of outputs to display is the same as the last cell id for which outputs were displayed
-nnoremap <leader>jj :call jukit#splits#out_hist_scroll(1)<cr>
+" nnoremap <leader>jj :call jukit#splits#out_hist_scroll(1)<cr>
 "   - Scroll down in output-history window. Argument: whether to scroll down (1) or up (0)
-nnoremap <leader>jk :call jukit#splits#out_hist_scroll(0)<cr>
+" nnoremap <leader>jk :call jukit#splits#out_hist_scroll(0)<cr>
 "   - Scroll up in output-history window. Argument: whether to scroll down (1) or up (0)
-nnoremap <leader>jah :call jukit#splits#toggle_auto_hist()<cr>
+" nnoremap <leader>jah :call jukit#splits#toggle_auto_hist()<cr>
 "   - Create/delete autocmd for displaying saved output on CursorHold. Also, see explanation for `g:jukit_auto_output_hist`
-nnoremap <leader>jsl :call jukit#layouts#set_layout()<cr>
+" nnoremap <leader>jsl :call jukit#layouts#set_layout()<cr>
 "   - Apply layout (see `g:jukit_layout`) to current splits - NOTE: it is expected that this function is called from the main file buffer/split
 
 "Sending code
-nnoremap <leader>j<space> :call jukit#send#section(0)<cr>
+" nnoremap <leader>j<space> :call jukit#send#section(0)<cr>
 "   - Send code within the current cell to output split (also saves the output if ipython is used and `g:jukit_save_output==1`). Argument: if 1, will move the cursor to the next cell below after sending the code to the split, otherwise cursor position stays the same.
-nnoremap <leader>jsl :call jukit#send#line()<cr>
+" nnoremap <leader>jsl :call jukit#send#line()<cr>
 "   - Send current line to output split
-vnoremap <leader>jss :<C-U>call jukit#send#selection()<cr>
+" vnoremap <leader>jss :<C-U>call jukit#send#selection()<cr>
 "   - Send visually selected code to output split
-nnoremap <leader>jcc :call jukit#send#until_current_section()<cr>
+" nnoremap <leader>jcc :call jukit#send#until_current_section()<cr>
 "   - Execute all cells until the current cell
-nnoremap <leader>jall :call jukit#send#all()<cr>
+" nnoremap <leader>jall :call jukit#send#all()<cr>
 "   - Execute all cells
 
 "Cells
-nnoremap <leader>jco :call jukit#cells#create_below(0)<cr>
+" nnoremap <leader>jco :call jukit#cells#create_below(0)<cr>
 "   - Create new code cell below. Argument: Whether to create code cell (0) or markdown cell (1)
-nnoremap <leader>jcO :call jukit#cells#create_above(0)<cr>
+" nnoremap <leader>jcO :call jukit#cells#create_above(0)<cr>
 "   - Create new code cell above. Argument: Whether to create code cell (0) or markdown cell (1)
-nnoremap <leader>jct :call jukit#cells#create_below(1)<cr>
+" nnoremap <leader>jct :call jukit#cells#create_below(1)<cr>
 "   - Create new textcell below. Argument: Whether to create code cell (0) or markdown cell (1)
-nnoremap <leader>jcT :call jukit#cells#create_above(1)<cr>
+" nnoremap <leader>jcT :call jukit#cells#create_above(1)<cr>
 "   - Create new textcell above. Argument: Whether to create code cell (0) or markdown cell (1)
-nnoremap <leader>jcd :call jukit#cells#delete()<cr>
+" nnoremap <leader>jcd :call jukit#cells#delete()<cr>
 "   - Delete current cell
-nnoremap <leader>jcs :call jukit#cells#split()<cr>
+" nnoremap <leader>jcs :call jukit#cells#split()<cr>
 "   - Split current cell (saved output will then be assigned to the resulting cell above)
-nnoremap <leader>jcM :call jukit#cells#merge_above()<cr>
+" nnoremap <leader>jcM :call jukit#cells#merge_above()<cr>
 "   - Merge current cell with the cell above
-nnoremap <leader>jcm :call jukit#cells#merge_below()<cr>
+" nnoremap <leader>jcm :call jukit#cells#merge_below()<cr>
 "   - Merge current cell with the cell below
-nnoremap <leader>jck :call jukit#cells#move_up()<cr>
+" nnoremap <leader>jck :call jukit#cells#move_up()<cr>
 "   - Move current cell up
-nnoremap <leader>jcj :call jukit#cells#move_down()<cr>
+" nnoremap <leader>jcj :call jukit#cells#move_down()<cr>
 "   - Move current cell down
-nnoremap <leader>jJ :call jukit#cells#jump_to_next_cell()<cr>
+" nnoremap <leader>jJ :call jukit#cells#jump_to_next_cell()<cr>
 "   - Jump to the next cell below
-nnoremap <leader>jK :call jukit#cells#jump_to_previous_cell()<cr>
+" nnoremap <leader>jK :call jukit#cells#jump_to_previous_cell()<cr>
 "   - Jump to the previous cell above
-nnoremap <leader>jddo :call jukit#cells#delete_outputs(0)<cr>
+" nnoremap <leader>jddo :call jukit#cells#delete_outputs(0)<cr>
 "   - Delete saved output of current cell. Argument: Whether to delete all saved outputs (1) or only saved output of current cell (0)
-nnoremap <leader>jdda :call jukit#cells#delete_outputs(1)<cr>
+" nnoremap <leader>jdda :call jukit#cells#delete_outputs(1)<cr>
 "   - Delete saved outputs of all cells. Argument: Whether to delete all saved outputs (1) or only saved output of current cell (0)
 
 "ipynb conversion
-nnoremap <leader>jnp :call jukit#convert#notebook_convert("jupyter-notebook")<cr>
-"   - Convert from ipynb to py or vice versa. Argument: Optional. If an argument is specified, then its value is used to open the resulting ipynb file after converting script.
-nnoremap <leader>jht :call jukit#convert#save_nb_to_file(0,1,'html')<cr>
+" nnoremap <leader>jnp :call jukit#convert#notebook_convert("jupyter-notebook")<cr>
+" -- Convert from ipynb to py or vice versa. Argument: Optional. If an argument is specified, then its value is used to open the resulting ipynb file after converting script.
+" nnoremap <leader>jht :call jukit#convert#save_nb_to_file(0,1,'html')<cr>
 "   - Convert file to html (including all saved outputs) and open it using the command specified in `g:jukit_html_viewer'. If `g:jukit_html_viewer` is not defined, then will default to `g:jukit_html_viewer='xdg-open'`. Arguments: 1.: Whether to rerun all cells when converting 2.: Whether to open it after converting 3.: filetype to convert to 
-nnoremap <leader>jrht :call jukit#convert#save_nb_to_file(1,1,'html')<cr>
+" nnoremap <leader>jrht :call jukit#convert#save_nb_to_file(1,1,'html')<cr>
 "   - same as above, but will (re-)run all cells when converting to html
-nnoremap <leader>jpd :call jukit#convert#save_nb_to_file(0,1,'pdf')<cr>
+" nnoremap <leader>jpd :call jukit#convert#save_nb_to_file(0,1,'pdf')<cr>
 "   - Convert file to pdf (including all saved outputs) and open it using the command specified in `g:jukit_pdf_viewer'. If `g:jukit_pdf_viewer` is not defined, then will default to `g:jukit_pdf_viewer='xdg-open'`. Arguments: 1.: Whether to rerun all cells when converting 2.: Whether to open it after converting 3.: filetype to convert to. NOTE: If the function doesn't work there may be issues with your nbconvert or latex version - to debug, try converting to pdf using `jupyter nbconvert --to pdf --allow-errors --log-level='ERROR' --HTMLExporter.theme=dark </abs/path/to/ipynb> && xdg-open </abs/path/to/pdf>` in your terminal and check the output for possible issues.
-nnoremap <leader>jrpd :call jukit#convert#save_nb_to_file(1,1,'pdf')<cr>
+" nnoremap <leader>jrpd :call jukit#convert#save_nb_to_file(1,1,'pdf')<cr>
 "   - same as above, but will (re-)run all cells when converting to pdf. NOTE: If the function doesn't work there may be issues with your nbconvert or latex version - to debug, try converting to pdf using `jupyter nbconvert --to pdf --allow-errors --log-level='ERROR' --HTMLExporter.theme=dark </abs/path/to/ipynb> && xdg-open </abs/path/to/pdf>` in your terminal and check the output for possible issues.
 
 "Ueberzug
@@ -250,7 +251,7 @@ fun! DFColumns()
     call jukit#send#send_to_split(cmd)
 endfun
 
-vnoremap <leader>jc :call DFColumns()<cr>
+" vnoremap <leader>jc :call DFColumns()<cr>
 
 fun! PythonHelp()
     let visual_selection = jukit#util#get_visual_selection()
@@ -258,9 +259,194 @@ fun! PythonHelp()
     call jukit#send#send_to_split(cmd)
 endfun
 
-vnoremap <leader>jh :call PythonHelp()<cr>
+" vnoremap <leader>jh :call PythonHelp()<cr>
 ]])
+
 return {
   "luk400/vim-jukit",
   enabled = true,
+  config = function()
+    -- TODO: ? does not work with whichkey correctly, setting keymaps permanantly for now
+    -- vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+    --   pattern = { "markdown", "python", "*.ipynb", "r", "julia", "matlab", "java", "rust", "lua" },
+    -- callback = function()
+
+    local map = require("_oml.utils").keymap
+    map(
+
+      "n",
+      "<leader>pos",
+      "<cmd>:call jukit#ueberzug#set_default_pos()<cr>",
+      { desc = "set position and dimension of überzug window" }
+    )
+    map("n", "<leader>jrpd", "<cmd>:call jukit#convert#save_nb_to_file(1,1,'pdf')<cr>", {
+      desc = "convert ot pdf will (re-)run all cells when converting to pdf. NOTE: If the function doesn't work there may be issues with your nbconvert or latex version - to debug, try converting to pdf using `jupyter nbconvert --to pdf --allow-errors --log-level='ERROR' --HTMLExporter.theme=dark </abs/path/to/ipynb> && xdg-open </abs/path/to/pdf>` in your terminal and check the output for possible issues.",
+    })
+    map("n", "<leader>jpd", "<cmd>:call jukit#convert#save_nb_to_file(0,1,'pdf')<cr>", {
+      desc = "Convert file to pdf (including all saved outputs) and open it using the command specified in `g:jukit_pdf_viewer'. If `g:jukit_pdf_viewer` is not defined, then will default to `g:jukit_pdf_viewer='xdg-open'`. Arguments: 1.: Whether to rerun all cells when converting 2.: Whether to open it after converting 3.: filetype to convert to. NOTE: If the function doesn't work there may be issues with your nbconvert or latex version - to debug, try converting to pdf using `jupyter nbconvert --to pdf --allow-errors --log-level='ERROR' --HTMLExporter.theme=dark </abs/path/to/ipynb> && xdg-open </abs/path/to/pdf>` in your terminal and check the output for possible issues.",
+    })
+    map(
+
+      "n",
+      "<leader>jrht",
+      "<cmd>:call jukit#convert#save_nb_to_file(1,1,'html')<cr>",
+      { desc = "same as above, but will (re-)run all cells when converting to html" }
+    )
+    map("n", "<leader>jht", "<cmd>:call jukit#convert#save_nb_to_file(0,1,'html')<cr>", {
+      desc = "Convert file to html (including all saved outputs) and open it using the command specified in `g:jukit_html_viewer'. If `g:jukit_html_viewer` is not defined, then will default to `g:jukit_html_viewer='xdg-open'`. Arguments: 1.: Whether to rerun all cells when converting 2.: Whether to open it after converting 3.: filetype to convert to ",
+    })
+    map("n", "<leader>jnp", "<cmd>:call jukit#convert#notebook_convert('jupyter-notebook')<cr>", {
+      desc = "Convert from ipynb to py or vice versa. Argument: Optional. If an argument is specified, then its value is used to open the resulting ipynb file after converting script.",
+    })
+    map("n", "<leader>jdda", "<cmd>:call jukit#cells#delete_outputs(1)<cr>", {
+      desc = "Delete saved outputs of all cells. Argument: Whether to delete all saved outputs (1) or only saved output of current cell (0)",
+    })
+    map("n", "<leader>jddo", "<cmd>:call jukit#cells#delete_outputs(0)<cr>", {
+      desc = "Delete saved output of current cell. Argument: Whether to delete all saved outputs (1) or only saved output of current cell (0)",
+    })
+    map(
+
+      "n",
+      "<leader>jK",
+      "<cmd>:call jukit#cells#jump_to_previous_cell()<cr>",
+      { desc = "Jump to the previous cell above" }
+    )
+    map("n", "<leader>jJ", "<cmd>:call jukit#cells#jump_to_next_cell()<cr>", { desc = "Jump to the next cell below" })
+    map("n", "<leader>jcj", "<cmd>:call jukit#cells#move_down()<cr>", { desc = "Move current cell down" })
+    map("n", "<leader>jck", "<cmd>:call jukit#cells#move_up()<cr>", { desc = "Move current cell up" })
+    map(
+      "n",
+      "<leader>jcm",
+      "<cmd>:call jukit#cells#merge_below()<cr>",
+      { desc = "Merge current cell with the cell below" }
+    )
+    map(
+      "n",
+      "<leader>jcM",
+      "<cmd>:call jukit#cells#merge_above()<cr>",
+      { desc = "Merge current cell with the cell above" }
+    )
+    map(
+
+      "n",
+      "<leader>jcs",
+      "<cmd>:call jukit#cells#split()<cr>",
+      { desc = "Split current cell (saved output will then be assigned to the resulting cell above)" }
+    )
+    map("n", "<leader>jcd", "<cmd>:call jukit#cells#delete()<cr>", { desc = "Delete current cell" })
+    map(
+
+      "n",
+      "<leader>jcT",
+      "<cmd>:call jukit#cells#create_above(1)<cr>",
+      { desc = "Create new textcell above. Argument: Whether to create code cell (0) or markdown cell (1)" }
+    )
+    map(
+
+      "n",
+      "<leader>jct",
+      "<cmd>:call jukit#cells#create_below(1)<cr>",
+      { desc = "Create new textcell below. Argument: Whether to create code cell (0) or markdown cell (1)" }
+    )
+    map(
+
+      "n",
+      "<leader>jcO",
+      "<cmd>:call jukit#cells#create_above(0)<cr>",
+      { desc = "Create new code cell above. Argument: Whether to create code cell (0) or markdown cell (1)" }
+    )
+    map(
+
+      "n",
+      "<leader>jco",
+      "<cmd>:call jukit#cells#create_below(0)<cr>",
+      { desc = "Create new code cell below. Argument: Whether to create code cell (0) or markdown cell (1)" }
+    )
+    map("n", "<leader>jall", "<cmd>:call jukit#send#all()<cr>", { desc = "Execute all cells" })
+    map(
+
+      "n",
+      "<leader>jcc",
+      "<cmd>:call jukit#send#until_current_section()<cr>",
+      { desc = "Execute all cells until the current cell" }
+    )
+    map(
+
+      "n",
+      "<leader>jss",
+      "<cmd>:<C-U>call jukit#send#selection()<cr>",
+      { desc = "Send visually selected code to output split" }
+    )
+    map("n", "<leader>jsl", "<cmd>:call jukit#send#line()<cr>", { desc = "Send current line to output split" })
+    map("n", "<leader>j<space>", "<cmd>:call jukit#send#section(0)<cr>", {
+      desc = "Send code within the current cell to output split (also saves the output if ipython is used and `g:jukit_save_output==1`). Argument: if 1, will move the cursor to the next cell below after sending the code to the split, otherwise cursor position stays the same.",
+    })
+    map("n", "<leader>jsl", "<cmd>:call jukit#layouts#set_layout()<cr>", {
+      desc = "Apply layout (see `g:jukit_layout`) to current splits - NOTE: it is expected that this function is called from the main file buffer/split",
+    })
+    map("n", "<leader>jah", "<cmd>:call jukit#splits#toggle_auto_hist()<cr>", {
+      desc = "Create/delete autocmd for displaying saved output on CursorHold. Also, see explanation for `g:jukit_auto_output_hist`",
+    })
+    map(
+
+      "n",
+      "<leader>jk",
+      "<cmd>:call jukit#splits#out_hist_scroll(0)<cr>",
+      { desc = "Scroll up in output-history window. Argument: whether to scroll down (1) or up (0)" }
+    )
+    map(
+
+      "n",
+      "<leader>jj",
+      "<cmd>:call jukit#splits#out_hist_scroll(1)<cr>",
+      { desc = "Scroll down in output-history window. Argument: whether to scroll down (1) or up (0)" }
+    )
+    map("n", "<leader>jso", "<cmd>:call jukit#splits#show_last_cell_output(1)<cr>", {
+      desc = "Show output of current cell (determined by current cursor position) in output-history window. Argument: Whether or not to reload outputs if cell id of outputs to display is the same as the last cell id for which outputs were displayed",
+    })
+    map(
+
+      "n",
+      "<leader>johd",
+      "<cmd>:call jukit#splits#close_output_and_history(1)<cr>",
+      { desc = "Close both windows. Argument: Whether or not to ask you to confirm before closing." }
+    )
+    map("n", "<leader>jod", "<cmd>:call jukit#splits#close_output_split()<cr>", { desc = "Close output window" })
+    map("n", "<leader>jhd", "<cmd>:call jukit#splits#close_history()<cr>", { desc = "Close output-history window" })
+    map(
+
+      "n",
+      "<leader>johs",
+      "<cmd>:call jukit#splits#output_and_history()<cr>",
+      { desc = "Shortcut for opening output terminal and output-history" }
+    )
+    map(
+      "n",
+      "<leader>jhs",
+      "<cmd>:call jukit#splits#history()<cr>",
+      { desc = "Opens a new output-history window, where saved ipython outputs are displayed" }
+    )
+    map(
+      "n",
+      "<leader>jts",
+      "<cmd>:call jukit#splits#term()<cr>",
+      { desc = "Opens a new output window without executing any command" }
+    )
+    map(
+      "n",
+      "<leader>jts",
+      "<cmd>:call jukit#splits#term()<cr>",
+      { desc = "Opens a new output window without executing any command" }
+    )
+    map(
+      "n",
+      "<leader>jos",
+      "<cmd>:call jukit#splits#output()<cr>",
+      { desc = "Opens a new output window and executes the command specified in `g:jukit_shell_cmd`" }
+    )
+    map("n", "<leader>jc", "<cmd>:call DFColumns()<cr>", { desc = "convenience func DFColumns" })
+    map("n", "<leader>jh", "<cmd>:call PythonHelp()<cr>", { desc = "convenience func PythonHelp" })
+    -- end,
+    -- })
+  end,
 }
