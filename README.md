@@ -46,6 +46,5 @@ able to make any changes and customizations you want without touching any files 
 
 - add plugin in its own file inside oh-my-lazyvim/plugins/{category}/\_{myplugin}.lua directory, in the category directory you think fits best
 
-- please do not perform updates, lazy-lock should only have a change for the new plugin you are adding
 
-- a big priority is creating strong LSP configs specific to each language and different frameworks, as well as stability (no plugins randomly breaking)
+- a big priority is iicreating strong LSP configs specific to each language and different frameworks
