@@ -149,6 +149,7 @@ map("n", "<leader><tab>N", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>p", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
+map("n", "gl", vim.diagnostic.open_float, { desc = "View Diagnostic"})
 -- floating terminal
 local lazyterm = function() Util.float_term(nil, { cwd = Util.get_root() }) end
 map("n", "<leader>tl", lazyterm, { desc = "Lazy Term (root dir)" })
