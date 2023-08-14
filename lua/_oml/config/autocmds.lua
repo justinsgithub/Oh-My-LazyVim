@@ -36,12 +36,18 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 })
 
 -- stop from annoyance of calling source % after changing config file, (won't work right for plugin specs)
--- TODO: only activate with global _dev variable
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = augroup("neovimdev"),
   pattern = { "*.lua" },
   callback = function()
-    vim.cmd("source %")
+    local cwd = vim.fn.getcwd()
+    local is_nvim_config = vim.fn.findfile("lazy-lock.json", cwd) ~= ""
+    -- only source neovim config lua files
+    if is_nvim_config then
+      vim.cmd("source %")
+      -- else
+      --   print("NOT NVIM CONFIG")
+    end
   end,
 })
 
@@ -59,7 +65,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   end,
 })
 
--- TODO: finish
+-- TODO: finish, set buffer local keymaps depending on filetype
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   group = augroup("keymaps"),
 --   pattern = { "*.lua" },
