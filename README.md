@@ -1,6 +1,6 @@
 # 💤 Oh My LazyVim 🔌
 
-> The last NeoVim config you'll never need.
+> The last NeoVim config you'll ever need.
 
 ## Important 
 
